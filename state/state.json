@@ -1,1 +1,17 @@
-{ "easybuyHistory": [], "log": [] }
+{
+  "easybuyHistory": [],
+  "log": [
+    {
+      "date": "2026-10-29",
+      "app": "easybuy",
+      "ok": true,
+      "permalink": "https://www.instagram.com/p/DfF6aV9F37I/"
+    },
+    {
+      "date": "2026-10-29",
+      "app": "vamos",
+      "ok": true,
+      "permalink": "https://www.instagram.com/p/DfF6bgslyMa/"
+    }
+  ]
+}
