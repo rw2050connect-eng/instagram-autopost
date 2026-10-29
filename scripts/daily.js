@@ -33,10 +33,10 @@ const pick = (arr, n) => { n = Math.floor(n); return arr[((n % arr.length) + arr
 const IG_USERNAMES = {
   easybuy: 'easybuy_rwanda',
   vamos: 'vamos_travel_ltd',
-  worksmart: '',
-  findme: '',
-  findit: '',
-  connect: '',
+  worksmart: 'use_work_smart',
+  findme: 'find_me_nearby',
+  findit: 'find250_',
+  connect: '2050connect',
 };
 // The GitHub secret IG_ACCOUNTS holds a long-lived Facebook user token (from Graph API Explorer).
 // From it we get each Page's token (Page tokens made from a long-lived user token never expire)
@@ -185,8 +185,7 @@ function git(cmd) { return execSync(cmd, { cwd: ROOT, stdio: 'pipe' }).toString(
     if (p.renderFailed) { failures++; continue; }
     const acc = accounts[p.app];
     if (!acc) {
-      if (IG_USERNAMES[p.app]) { failures++; console.error(`❌ ${p.app}: could not get a login for @${IG_USERNAMES[p.app]}`); }
-      else console.log(`⏭️  ${p.app}: no Instagram account connected yet`);
+      console.log(`⏭️  ${p.app}: @${IG_USERNAMES[p.app] || '?'} is not linked to a Facebook Page yet — skipped`);
       continue;
     }
     const url = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/posts/${DATE}/${p.app}.jpg`;
