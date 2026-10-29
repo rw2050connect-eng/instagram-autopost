@@ -1,0 +1,48 @@
+name: Daily Instagram posts
+
+on:
+  schedule:
+    - cron: '40 5 * * *'   # 05:40 UTC = 07:40 Kigali (GitHub often starts a few minutes late, so posts land around 8 AM)
+  workflow_dispatch:
+    inputs:
+      only:
+        description: 'Only these accounts (e.g. easybuy,vamos). Leave empty for all.'
+        required: false
+      dry:
+        description: 'Preview only — make pictures but do not post'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-post
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Make and publish today's posts
+        env:
+          IG_ACCOUNTS: ${{ secrets.IG_ACCOUNTS }}
+        run: |
+          ARGS=""
+          if [ -n "${{ inputs.only }}" ]; then ARGS="$ARGS --only ${{ inputs.only }}"; fi
+          if [ "${{ inputs.dry }}" = "true" ]; then ARGS="$ARGS --dry"; fi
+          node scripts/daily.js $ARGS
+      - name: Keep preview pictures
+        if: ${{ inputs.dry }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: preview
+          path: posts/

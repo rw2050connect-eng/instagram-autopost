@@ -1,0 +1,10 @@
+{
+  "name": "instagram-autopost",
+  "private": true,
+  "description": "Daily Instagram posts for 2050 Connect apps",
+  "scripts": { "post": "node scripts/daily.js", "preview": "node scripts/daily.js --dry" },
+  "dependencies": {
+    "image-size": "^1.2.1",
+    "playwright": "^1.56.0"
+  }
+}

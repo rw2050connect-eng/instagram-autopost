@@ -1,0 +1,314 @@
+{
+ "note": "EasyBuy alternates: even days = a live product from the store (real photo + real price), odd days = one of these service posts.",
+ "excludeWords": [
+  "alcohol",
+  "beer",
+  "wine",
+  "whisky",
+  "liquor",
+  "champagne",
+  "cigarette",
+  "tobacco",
+  "vape",
+  "shisha",
+  "pharmacy",
+  "weight management",
+  "corset",
+  "shaper",
+  "sexual",
+  "adult",
+  "lcd",
+  "screen for",
+  "replacement",
+  "parts",
+  "repair",
+  "flex cable",
+  "housing",
+  "back cover",
+  "battery for",
+  "digitizer"
+ ],
+ "productKickers": [
+  "Deal of the day",
+  "Today's pick",
+  "Just for you",
+  "Trending now",
+  "Customer favourite",
+  "New on EasyBuy"
+ ],
+ "productCaptions": [
+  "🛍️ Today's pick on EasyBuy Africa: {title}\n\n💰 {price} RWF\n{delivery}\n💳 Pay with MTN MoMo, Airtel Money or cash on delivery.\n\nOrder now on easybuyrw.com or in the EasyBuy Africa app (link in bio).",
+  "✨ {title}\n\nOnly {price} RWF on EasyBuy Africa.\n{delivery}\n\nShop now at easybuyrw.com — link in bio.",
+  "🔥 Trending on EasyBuy: {title}\n\nPrice: {price} RWF\n{delivery}\nPay with MoMo, Airtel Money or cash.\n\nTap the link in bio to order."
+ ],
+ "posts": [
+  {
+   "layout": "feature",
+   "kicker": "Fast delivery",
+   "headline": "Ordered now. At your door in [90 minutes].",
+   "sub": "Same-day delivery across Kigali.",
+   "points": [
+    "Same-day delivery, often in 90 min",
+    "Or choose tomorrow — same price",
+    "Delivered by the EasyBuy team"
+   ],
+   "cta": "Order now",
+   "caption": "🛵 Need it today? Order on EasyBuy Africa and get it delivered to your door in Kigali — often in about 90 minutes. Prefer tomorrow? Same price.\n\nShop at easybuyrw.com (link in bio).",
+   "tags": [
+    "#SameDayDelivery",
+    "#KigaliDelivery"
+   ]
+  },
+  {
+   "layout": "statement",
+   "kicker": "Easy payment",
+   "headline": "Pay with [MoMo], Airtel Money or cash.",
+   "sub": "Choose the way that works for you.",
+   "cta": "Shop now",
+   "caption": "💳 Pay the way you like on EasyBuy Africa: MTN MoMo, Airtel Money, or cash on delivery.\n\nShop at easybuyrw.com",
+   "tags": [
+    "#MoMo",
+    "#AirtelMoney"
+   ]
+  },
+  {
+   "layout": "feature",
+   "kicker": "Groceries",
+   "headline": "Skip the market [queue]",
+   "sub": "Fresh groceries delivered in Kigali.",
+   "points": [
+    "Fruits and vegetables",
+    "Rice, oil, flour and essentials",
+    "Delivered the same day"
+   ],
+   "cta": "Shop groceries",
+   "caption": "🥑🍌 No time for the market? Order fresh fruits, vegetables and everyday groceries on EasyBuy Africa and get them delivered in Kigali the same day.\n\neasybuyrw.com",
+   "tags": [
+    "#Groceries",
+    "#FreshFood"
+   ]
+  },
+  {
+   "layout": "statement",
+   "kicker": "Ship from China",
+   "headline": "Thousands of products [from China], delivered to you.",
+   "sub": "Phones, gadgets, shoes, bags and more — pay with Mobile Money.",
+   "cta": "Shop Ship from China",
+   "caption": "🌏 Want products from China without the hassle? EasyBuy's Ship from China section has thousands of items — phones, gadgets, shoes, bags, watches and more. Pay with Mobile Money and we handle the shipping.\n\neasybuyrw.com",
+   "tags": [
+    "#ShipFromChina",
+    "#Gadgets"
+   ]
+  },
+  {
+   "layout": "steps",
+   "kicker": "Sell on EasyBuy",
+   "headline": "Open your shop on EasyBuy in [minutes]",
+   "points": [
+    "Sign up with your Google account",
+    "Add your shop name and address",
+    "Upload your products and start selling"
+   ],
+   "cta": "Sell on EasyBuy Africa",
+   "caption": "🏪 Have products to sell? Open your shop on EasyBuy Africa:\n1️⃣ Sign up with Google\n2️⃣ Add your shop details\n3️⃣ Upload products and start selling\n\nYou set your price and receive your full price. We handle delivery. easybuyrw.com",
+   "tags": [
+    "#SellOnline",
+    "#Vendors"
+   ]
+  },
+  {
+   "layout": "feature",
+   "kicker": "Sellers",
+   "headline": "Keep [100%] of your price",
+   "sub": "No commission taken from sellers.",
+   "points": [
+    "You set your own price",
+    "You receive your full price",
+    "EasyBuy delivers to the customer"
+   ],
+   "cta": "Become a seller",
+   "caption": "💯 Selling on EasyBuy Africa? You set your price and receive the full amount — no commission taken from you. We bring the customers and deliver the orders.\n\nStart at easybuyrw.com → Sell on EasyBuy.",
+   "tags": [
+    "#Sellers",
+    "#SmallBusiness"
+   ]
+  },
+  {
+   "layout": "statement",
+   "kicker": "Beauty",
+   "headline": "Your favourite [beauty] products, delivered.",
+   "sub": "Lotions, perfumes, hair care and make-up.",
+   "cta": "Shop beauty",
+   "caption": "💄 Body lotions, perfumes, shampoos, hair care and make-up — all on EasyBuy Africa, delivered in Kigali.\n\neasybuyrw.com",
+   "tags": [
+    "#Beauty",
+    "#SelfCare"
+   ]
+  },
+  {
+   "layout": "feature",
+   "kicker": "Home appliances",
+   "headline": "Upgrade your [kitchen]",
+   "sub": "Appliances delivered to your home.",
+   "points": [
+    "Blenders, kettles and cookers",
+    "Fans, irons and more",
+    "Pay on delivery"
+   ],
+   "cta": "Shop appliances",
+   "caption": "🍳 Blenders, kettles, cookers, fans and more — upgrade your home with appliances from EasyBuy Africa. Pay with MoMo, Airtel Money or cash on delivery.\n\neasybuyrw.com",
+   "tags": [
+    "#HomeAppliances",
+    "#Kitchen"
+   ]
+  },
+  {
+   "layout": "statement",
+   "kicker": "Delivery fee",
+   "headline": "Delivery from just [500 RWF].",
+   "sub": "500 RWF for the first km, then 200 RWF per km within Kigali.",
+   "cta": "Order now",
+   "caption": "🚚 Fair, simple delivery fees in Kigali: 500 RWF for the first kilometre, then 200 RWF for each extra km from our warehouse. You see the fee before you pay.\n\neasybuyrw.com",
+   "tags": [
+    "#Delivery",
+    "#Kigali"
+   ]
+  },
+  {
+   "layout": "feature",
+   "kicker": "EasyBuy Deals",
+   "headline": "Never miss a [deal]",
+   "sub": "Follow our WhatsApp channel \"Easybuy Deals\".",
+   "points": [
+    "Daily offers",
+    "New arrivals first",
+    "Exclusive discounts"
+   ],
+   "cta": "Join Easybuy Deals",
+   "caption": "📢 Want the best prices first? Follow our WhatsApp channel \"Easybuy Deals\" for daily offers, new arrivals and discounts. Find the link in our bio.\n\neasybuyrw.com",
+   "tags": [
+    "#Deals",
+    "#WhatsApp"
+   ]
+  },
+  {
+   "layout": "statement",
+   "kicker": "The app",
+   "headline": "Kigali's shop in your [pocket].",
+   "sub": "Get the EasyBuy Africa app.",
+   "cta": "Download the app",
+   "caption": "📱 Shop faster with the EasyBuy Africa app — browse thousands of products, pay with Mobile Money and track your delivery. Now on the App Store.\n\nLink in bio.",
+   "tags": [
+    "#ShoppingApp",
+    "#AppStore"
+   ]
+  },
+  {
+   "layout": "feature",
+   "kicker": "Electronics",
+   "headline": "Phones, laptops & [gadgets]",
+   "sub": "Tech delivered in Kigali.",
+   "points": [
+    "Smartphones and accessories",
+    "Laptops and PC accessories",
+    "Speakers, headphones and smart watches"
+   ],
+   "cta": "Shop electronics",
+   "caption": "📱💻🎧 Smartphones, laptops, speakers, headphones and smart watches — all on EasyBuy Africa, delivered in Kigali.\n\neasybuyrw.com",
+   "tags": [
+    "#Electronics",
+    "#Tech"
+   ]
+  },
+  {
+   "layout": "statement",
+   "kicker": "Baby care",
+   "headline": "Everything for your [little one].",
+   "sub": "Diapers, wipes, baby food and care products.",
+   "cta": "Shop baby care",
+   "caption": "👶 Running low on diapers or baby food? Order baby care essentials on EasyBuy Africa and get them delivered in Kigali.\n\neasybuyrw.com",
+   "tags": [
+    "#BabyCare",
+    "#Parents"
+   ]
+  },
+  {
+   "layout": "feature",
+   "kicker": "Order cut-off",
+   "headline": "Order [early], get it today",
+   "sub": "Each product shows its same-day cut-off time.",
+   "points": [
+    "Before cut-off: delivered today",
+    "After cut-off: delivered tomorrow",
+    "Same delivery price either way"
+   ],
+   "cta": "Shop now",
+   "caption": "⏰ Want it today? Every product on EasyBuy shows its order cut-off time. Order before it and we deliver the same day — after it, we deliver tomorrow. Same price.\n\neasybuyrw.com",
+   "tags": [
+    "#SameDayDelivery",
+    "#Kigali"
+   ]
+  },
+  {
+   "layout": "statement",
+   "kicker": "Household care",
+   "headline": "Clean home, [zero] trips to the shop.",
+   "sub": "Soap, detergents and cleaning products delivered.",
+   "cta": "Shop household care",
+   "caption": "🧼 Soap, detergents, toothpaste and cleaning products — stock up on household essentials on EasyBuy Africa without leaving home.\n\neasybuyrw.com",
+   "tags": [
+    "#Household",
+    "#CleanHome"
+   ]
+  },
+  {
+   "layout": "feature",
+   "kicker": "Why EasyBuy",
+   "headline": "Shopping in Kigali made [easy]",
+   "sub": "Thousands of products in one place.",
+   "points": [
+    "Delivered fast across Kigali",
+    "Pay with MoMo, Airtel or cash",
+    "Local shops and products from China"
+   ],
+   "cta": "Start shopping",
+   "caption": "🛒 Why shop with EasyBuy Africa? Thousands of products, fast delivery across Kigali and easy payment with MoMo, Airtel Money or cash.\n\neasybuyrw.com",
+   "tags": [
+    "#EasyBuy",
+    "#ShopLocal"
+   ]
+  }
+ ],
+ "productKeywords": [
+  "phone",
+  "blender",
+  "perfume",
+  "shoes",
+  "watch",
+  "speaker",
+  "kettle",
+  "lotion",
+  "laptop",
+  "fan",
+  "headphone",
+  "bag",
+  "juice",
+  "iron",
+  "rice",
+  "hair",
+  "tv",
+  "cooker",
+  "earphone",
+  "sneaker",
+  "oil",
+  "coffee",
+  "tablet",
+  "camera",
+  "shampoo",
+  "microwave",
+  "charger",
+  "dress",
+  "fridge",
+  "toaster"
+ ]
+}
