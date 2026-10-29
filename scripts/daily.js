@@ -15,7 +15,7 @@ const NO_GIT = args.includes('--no-git');
 const ONLY = arg('--only') ? arg('--only').split(',') : null;
 
 const START = '2026-11-01'; // day 0 of the content calendar
-const APPS = ['connect', 'easybuy', 'vamos', 'worksmart', 'findme', 'findit'];
+const APPS = ['connect', 'easybuy', 'easybuy2', 'vamos', 'worksmart', 'findme', 'findit'];
 const REPO = process.env.GITHUB_REPOSITORY || 'rw2050connect-eng/instagram-autopost';
 const BRANCH = process.env.GITHUB_REF_NAME || 'main';
 const GRAPH = 'https://graph.facebook.com/v26.0';
@@ -32,6 +32,7 @@ const pick = (arr, n) => { n = Math.floor(n); return arr[((n % arr.length) + arr
 // Which Instagram username belongs to which app (add new ones here).
 const IG_USERNAMES = {
   easybuy: 'easybuy_rwanda',
+  easybuy2: 'easybuy_africa_', // same service each day as easybuy, different post
   vamos: 'vamos_travel_ltd',
   worksmart: 'use_work_smart',
   findme: 'find_me_nearby',
@@ -76,7 +77,7 @@ async function loadAccounts() {
   return acc;
 }
 // ---------- EasyBuy live product ----------
-async function easybuyProduct(cfg, history) {
+async function easybuyProduct(cfg, history, variant = '') {
   const SB = 'https://iwulhmrfgrxdsfucrhud.supabase.co/rest/v1';
   const KEY = process.env.EASYBUY_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml3dWxobXJmZ3J4ZHNmdWNyaHVkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE1ODE1MDEsImV4cCI6MjEwNzE1NzUwMX0.9Qp78pACAYqd1mVY7ZBW2kajbPO-Mw1UUt4B_zem8Qs'; // public website key
   const headers = { apikey: KEY, Authorization: `Bearer ${KEY}` };
@@ -91,7 +92,7 @@ async function easybuyProduct(cfg, history) {
     if (!r.ok) { console.warn('EasyBuy query failed', r.status, await r.text()); continue; }
     const list = (await r.json()).filter(p => p.product_images && p.product_images.length && !bad(p.title) && !bad(p.category) && !bad(p.product_type) && !history.includes(p.id));
     if (!list.length) continue;
-    const seed = crypto.createHash('md5').update(DATE + kw).digest().readUInt32BE(0);
+    const seed = crypto.createHash('md5').update(DATE + kw + variant).digest().readUInt32BE(0);
     for (let k = 0; k < Math.min(list.length, 8); k++) {
       const p = list[(seed + k) % list.length];
       const img = p.product_images.sort((a, b) => (a.position || 0) - (b.position || 0))[0].url;
@@ -112,20 +113,24 @@ async function easybuyProduct(cfg, history) {
 // ---------- build today's posts ----------
 async function buildPosts(state) {
   const posts = [];
+  let mainProductId = null;
   for (const app of APPS) {
     if (ONLY && !ONLY.includes(app)) continue;
     if (!DRY && !IG_USERNAMES[app]) continue; // not connected to Instagram yet
     const b = BRANDS[app];
     let post;
-    if (app === 'easybuy') {
+    if (app === 'easybuy' || app === 'easybuy2') {
+      const alt = app === 'easybuy2';
       const cfg = readJSON('content/easybuy.json');
       let live = null;
-      if (DAY % 2 === 0) live = await easybuyProduct(cfg, state.easybuyHistory || []);
+      if (DAY % 2 === 0) live = await easybuyProduct(cfg, [...(state.easybuyHistory || []), ...(alt && mainProductId ? [mainProductId] : [])], alt ? 'alt' : '');
       if (live) {
-        const cap = pick(cfg.productCaptions, DAY / 2).replace('{title}', live.title).replace('{price}', Number(live.product.price_rwf).toLocaleString('en-US')).replace('{delivery}', live.delivery);
-        post = { app, layout: 'product', image: live.img, kicker: pick(cfg.productKickers, DAY / 2), headline: live.title, price: live.product.price_rwf, chips: live.chips, cta: 'Order on EasyBuy', caption: cap, tags: ['#DealOfTheDay'], productId: live.product.id };
+        const k = Math.floor(DAY / 2) + (alt ? 1 : 0);
+        const cap = pick(cfg.productCaptions, k).replace('{title}', live.title).replace('{price}', Number(live.product.price_rwf).toLocaleString('en-US')).replace('{delivery}', live.delivery);
+        post = { app, layout: 'product', image: live.img, kicker: pick(cfg.productKickers, k), headline: live.title, price: live.product.price_rwf, chips: live.chips, cta: 'Order on EasyBuy', caption: cap, tags: ['#DealOfTheDay'], productId: live.product.id };
+        if (!alt) mainProductId = live.product.id;
       } else {
-        post = { app, ...pick(cfg.posts, Math.floor(DAY / 2)) };
+        post = { app, ...pick(alt && cfg.postsAlt ? cfg.postsAlt : cfg.posts, Math.floor(DAY / 2)) };
       }
     } else {
       post = { app, ...pick(readJSON(`content/${app}.json`), DAY) };
