@@ -1,5 +1,7 @@
 {
-  "easybuyHistory": [],
+  "easybuyHistory": [
+    "a91fb637-53bd-417b-a630-c2440eb689cb"
+  ],
   "log": [
     {
       "date": "2026-10-29",
@@ -12,6 +14,24 @@
       "app": "vamos",
       "ok": true,
       "permalink": "https://www.instagram.com/p/DfF6bgslyMa/"
+    },
+    {
+      "date": "2026-10-30",
+      "app": "easybuy",
+      "ok": true,
+      "permalink": "https://www.instagram.com/p/DfHfkmaF_g7/"
+    },
+    {
+      "date": "2026-10-30",
+      "app": "vamos",
+      "ok": true,
+      "permalink": "https://www.instagram.com/p/DfHflzpDSZq/"
+    },
+    {
+      "date": "2026-10-30",
+      "app": "worksmart",
+      "ok": true,
+      "permalink": "https://www.instagram.com/p/DfHfnVqjeak/"
     }
   ]
 }
