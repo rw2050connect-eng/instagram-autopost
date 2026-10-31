@@ -1,32 +1,457 @@
 [
-{"layout":"statement","kicker":"Go digital","headline":"Run your business from [anywhere].","sub":"Websites, mobile apps and smart management systems — built for you by 2050 Connect.","cta":"Book a free consultation","caption":"🌍 Your business shouldn't stop when you leave the shop. 2050 Connect takes your business online — websites, mobile apps and smart management systems that help you sell more, work less and stay in control.\n\nBook a free consultation at 2050connect.com","tags":["#DigitalTransformation","#BusinessOnline"]},
-{"layout":"feature","kicker":"Websites","headline":"A website that [sells] for you","sub":"Fast, beautiful, mobile-friendly websites and online stores.","points":["Looks great on every phone","Online store or booking system","Google Business setup"],"cta":"Get your website","caption":"💻 Your customers search online before they buy. Get a fast, beautiful, mobile-friendly website or online store from 2050 Connect — built to turn visitors into customers.\n\n2050connect.com","tags":["#WebDesign","#Website"]},
-{"layout":"feature","kicker":"Mobile apps","headline":"Your business on every [phone]","sub":"Custom iPhone and Android apps.","points":["Ordering and bookings","Loyalty and offers","Published on the App Store & Google Play"],"cta":"Build your app","caption":"📱 Put your business in your customers' pockets. 2050 Connect builds custom iPhone and Android apps for ordering, bookings and loyalty — and publishes them for you.\n\n2050connect.com","tags":["#MobileApp","#AppDevelopment"]},
-{"layout":"feature","kicker":"Digital management","headline":"One [dashboard] for everything","sub":"Sales, stock, staff, customers and money in one place.","points":["See sales in real time","Track stock and staff","Know your real profit"],"cta":"Get organised","caption":"📊 Stop running your business from notebooks. A 2050 Connect management system puts sales, inventory, staff, customers and finances in one simple dashboard.\n\n2050connect.com","tags":["#BusinessManagement","#Dashboard"]},
-{"layout":"statement","kicker":"Automation","headline":"Save [hours] every week.","sub":"Automatic invoices, reminders, reports and repetitive tasks.","cta":"Automate your business","caption":"⚡ Invoices, payment reminders, daily reports… let them run themselves. 2050 Connect automates the repetitive work so you can focus on growing.\n\n2050connect.com","tags":["#Automation","#Productivity"]},
-{"layout":"feature","kicker":"Digital marketing","headline":"Bring new [customers] to your door","sub":"SEO, social media and online campaigns.","points":["Be found on Google","Grow on social media","Campaigns that bring sales"],"cta":"Grow online","caption":"📣 Great businesses deserve to be found. 2050 Connect helps with SEO, social media and online campaigns that bring new customers straight to you.\n\n2050connect.com","tags":["#DigitalMarketing","#SEO"]},
-{"layout":"steps","kicker":"How it works","headline":"From idea to [online] in 4 steps","points":["Discover — we learn your business","Design — we plan the right solution","Build & launch — and train your team","Grow — we support you after launch"],"cta":"Start your project","caption":"🚀 How we work:\n01 Discover your business and goals\n02 Design the right website, app or system\n03 Build, test, launch and train your team\n04 Support and grow with you\n\n2050connect.com","tags":["#HowWeWork","#TechPartner"]},
-{"layout":"statement","kicker":"Our work","headline":"We built [EasyBuy Africa].","sub":"An online marketplace with fast delivery and mobile money — website, iPhone and Android apps.","cta":"See our work","caption":"🛒 Made by 2050 Connect: EasyBuy Africa — an online shop for groceries, electronics, appliances, fashion and beauty, with fast delivery and mobile money payments. Website + iOS + Android.\n\nWant something like this? 2050connect.com","tags":["#Portfolio","#Ecommerce"]},
-{"layout":"statement","kicker":"Our work","headline":"We built [Vamos Travel].","sub":"Taxis, car rental, tours and stays — bookable and payable online in USD or RWF.","cta":"See our work","caption":"🧭 Made by 2050 Connect: Vamos Travel — taxi, car rental, guided tours, places to stay and Visit Rwanda packages, all bookable online with online payments in USD or Rwandan francs.\n\n2050connect.com","tags":["#Portfolio","#TravelTech"]},
-{"layout":"feature","kicker":"Our work","headline":"Vamos Taxi & Tours [app]","sub":"A ride-hailing app built by 2050 Connect.","points":["Upfront fares","Live driver tracking","Cash, MoMo or card"],"cta":"Build your app","caption":"🚕 Made by 2050 Connect: the Vamos Taxi & Tours app — fares shown upfront, live driver tracking, and payment by cash, MoMo or card. On iPhone and Android.\n\nNeed an app like this? 2050connect.com","tags":["#RideHailing","#AppDevelopment"]},
-{"layout":"statement","kicker":"Our work","headline":"We built [Work Smart].","sub":"Owners see sales, staff and reports live. Workers clock in, record sales and send daily reports.","cta":"See our work","caption":"🏢 Made by 2050 Connect: Work Smart — a business manager where owners see sales, staff and reports in real time, and workers clock in and send daily reports from their phones.\n\n2050connect.com","tags":["#Portfolio","#SaaS"]},
-{"layout":"feature","kicker":"Our work","headline":"Find me & [Find it]","sub":"Two more platforms built by 2050 Connect.","points":["Find me — meet people around shared activities","Find it — buy, sell & rent anything in Rwanda","Websites and mobile apps"],"cta":"See our work","caption":"🔍💚 Also made by 2050 Connect: Find me, a social app for meeting people around shared activities, and Find it, Rwanda's classifieds marketplace.\n\n2050connect.com","tags":["#Portfolio","#MadeInRwanda"]},
-{"layout":"statement","kicker":"Our work","headline":"Smart systems for [EV charging].","sub":"We built the Vamos EV Charger management system: chargers, sessions and payments in one dashboard.","cta":"Build your system","caption":"⚡ Made by 2050 Connect: a management system for Vamos electric-vehicle charging stations — chargers, charging sessions and payments in one dashboard.\n\nNeed a custom business system? 2050connect.com","tags":["#ElectricVehicle","#CustomSoftware"]},
-{"layout":"feature","kicker":"Retail","headline":"Shops that sell [online] too","sub":"Online store + stock + point of sale.","points":["Online store with delivery","Stock that updates itself","Mobile money payments"],"cta":"Take your shop online","caption":"🛍️ Shop owners: sell in your shop AND online. 2050 Connect builds your online store, connects it to your stock and accepts mobile money.\n\n2050connect.com","tags":["#Retail","#ShopOwner"]},
-{"layout":"feature","kicker":"Restaurants","headline":"More orders. [Less] chaos.","sub":"Digital tools for restaurants and cafés.","points":["Online menu and ordering","Table and kitchen screens","Daily sales reports"],"cta":"Upgrade your restaurant","caption":"🍽️ Restaurants and cafés: online menus, ordering, kitchen screens and daily reports — 2050 Connect sets it all up for you.\n\n2050connect.com","tags":["#Restaurant","#FoodBusiness"]},
-{"layout":"feature","kicker":"Clinics & salons","headline":"Bookings that run [themselves]","sub":"Appointments, reminders and payments online.","points":["Online booking 24/7","Automatic reminders","Client records in one place"],"cta":"Get a booking system","caption":"💇🏥 Salons, spas and clinics: let clients book online any time, send automatic reminders and keep every record in one place.\n\n2050connect.com","tags":["#Salon","#Clinic"]},
-{"layout":"feature","kicker":"Logistics","headline":"Track every [delivery]","sub":"Systems for transport and delivery businesses.","points":["Trips and drivers","Live tracking","Income per vehicle"],"cta":"Digitise your fleet","caption":"🚚 Transport and delivery companies: know where every vehicle is, what every trip earned and what every driver spent — with a 2050 Connect system.\n\n2050connect.com","tags":["#Logistics","#Fleet"]},
-{"layout":"feature","kicker":"Schools","headline":"Schools, [online]","sub":"Digital tools for schools and training centres.","points":["Student records and fees","Parent communication","Website and online enrolment"],"cta":"Digitise your school","caption":"🏫 Schools and training centres: student records, fee tracking, parent communication and online enrolment — built by 2050 Connect.\n\n2050connect.com","tags":["#Education","#EdTech"]},
-{"layout":"feature","kicker":"Real estate","headline":"Show every [property] online","sub":"Websites and systems for real estate.","points":["Property listings with photos","Enquiries straight to WhatsApp","Rent and tenant tracking"],"cta":"Get a property website","caption":"🏘️ Real estate agents and landlords: show your properties online, receive enquiries on WhatsApp and track rent and tenants with 2050 Connect.\n\n2050connect.com","tags":["#RealEstate","#PropTech"]},
-{"layout":"statement","kicker":"No tech skills needed","headline":"You run the business. We handle the [tech].","sub":"We build everything and train you in plain language.","cta":"Talk to our team","caption":"🙌 Do you need technical knowledge? Not at all. 2050 Connect handles everything technical and trains you and your team in plain language.\n\n2050connect.com","tags":["#SmallBusiness","#TechMadeSimple"]},
-{"layout":"feature","kicker":"Starter plan","headline":"Get your business [online]","sub":"The Starter plan.","points":["Professional website","Contact & WhatsApp integration","Google Business setup"],"cta":"Request a quote","caption":"🌱 Starting out? The 2050 Connect Starter plan gets your business online: a professional mobile-friendly website, WhatsApp contact and Google Business setup.\n\nRequest a quote at 2050connect.com","tags":["#Startup","#Website"]},
-{"layout":"feature","kicker":"Growth plan","headline":"Sell and manage [online]","sub":"Our most popular plan.","points":["Online store or booking system","Management dashboard","Automation, reports & priority support"],"cta":"Request a quote","caption":"📈 Our most popular plan: Growth. Everything in Starter plus an online store or booking system, a management dashboard, automation and reports, and priority support.\n\n2050connect.com","tags":["#BusinessGrowth","#Ecommerce"]},
-{"layout":"feature","kicker":"Enterprise plan","headline":"Full digital [transformation]","sub":"For businesses ready to go all in.","points":["Custom mobile app","Custom business system","Team training & account manager"],"cta":"Request a quote","caption":"🏢 Enterprise: everything in Growth plus a custom mobile app, a custom business system, team training and a dedicated account manager.\n\n2050connect.com","tags":["#Enterprise","#CustomSoftware"]},
-{"layout":"statement","kicker":"After launch","headline":"We don't disappear after [launch].","sub":"Maintenance, updates, hosting help and real support.","cta":"Talk to our team","caption":"🤝 What happens after launch? We stay with you — maintenance, updates, hosting help and friendly support that keeps everything running.\n\n2050connect.com","tags":["#Support","#TechPartner"]},
-{"layout":"feature","kicker":"Why 2050 Connect","headline":"One team for [everything]","sub":"Website, app and management tools from one partner.","points":["No juggling vendors","Secure and reliable","Real people who answer"],"cta":"Work with us","caption":"✅ Why 2050 Connect? One team for your website, app and management tools. Modern security, backups and reliable hosting. And real people who answer when you need help.\n\n2050connect.com","tags":["#WhyUs","#TechPartner"]},
-{"layout":"statement","kicker":"Timeline","headline":"Your website in [weeks], not months.","sub":"Apps and custom systems get a clear timeline before we start.","cta":"Start your project","caption":"⏱️ How long does it take? A website can be ready in a few weeks. For apps and custom systems, we give you a clear timeline before we start.\n\n2050connect.com","tags":["#Website","#ProjectPlanning"]},
-{"layout":"feature","kicker":"Existing systems","headline":"Already have a system? We'll make it [better].","sub":"We connect, improve or replace what you use today.","points":["Connect your current tools","Move your data safely","Upgrade step by step"],"cta":"Talk to our team","caption":"🔄 Already using some tools? 2050 Connect can connect to them, improve them, or move you to something better — whatever fits your business.\n\n2050connect.com","tags":["#Integration","#Upgrade"]},
-{"layout":"statement","kicker":"Mobile money","headline":"Get paid with [MoMo] and Airtel Money online.","sub":"We connect mobile money payments to your website and app.","cta":"Accept payments online","caption":"💳 Let customers pay you online with MTN MoMo and Airtel Money. 2050 Connect connects mobile money payments to your website or app.\n\n2050connect.com","tags":["#MobileMoney","#Payments"]},
-{"layout":"feature","kicker":"Remote business","headline":"Your business, [open 24/7]","sub":"Move your operations online.","points":["Customers order any time","Staff report from anywhere","You see it all live"],"cta":"Go remote","caption":"🌙 Customers can order at midnight, staff can report from anywhere, and you can see it all live. 2050 Connect moves your operations online.\n\n2050connect.com","tags":["#RemoteBusiness","#24x7"]},
-{"layout":"statement","kicker":"2050 Connect","headline":"Let's bring your business into [2050].","sub":"Free consultation · rw2050connect@gmail.com · +250 788 265 156","cta":"Get started","caption":"🚀 Let's bring your business into 2050. Tell us about your business and what you want to achieve — we'll come back with ideas and a free consultation.\n\n📧 rw2050connect@gmail.com\n📞 +250 788 265 156\n2050connect.com","tags":["#Kigali","#Rwanda"]}
+ {
+  "layout": "statement",
+  "kicker": "Go digital",
+  "headline": "Run your business from [anywhere].",
+  "sub": "Websites, mobile apps and smart management systems — built for you by 2050 Connect.",
+  "cta": "Book a free consultation",
+  "caption": "🌍 Your business shouldn't stop when you leave the shop. 2050 Connect takes your business online — websites, mobile apps and smart management systems that help you sell more, work less and stay in control.\n\nBook a free consultation at 2050connect.com",
+  "tags": [
+   "#DigitalTransformation",
+   "#BusinessOnline"
+  ]
+ },
+ {
+  "layout": "feature",
+  "kicker": "Websites",
+  "headline": "A website that [sells] for you",
+  "sub": "Fast, beautiful, mobile-friendly websites and online stores.",
+  "points": [
+   "Looks great on every phone",
+   "Online store or booking system",
+   "Google Business setup"
+  ],
+  "cta": "Get your website",
+  "caption": "💻 Your customers search online before they buy. Get a fast, beautiful, mobile-friendly website or online store from 2050 Connect — built to turn visitors into customers.\n\n2050connect.com",
+  "tags": [
+   "#WebDesign",
+   "#Website"
+  ]
+ },
+ {
+  "layout": "feature",
+  "kicker": "Mobile apps",
+  "headline": "Your business on every [phone]",
+  "sub": "Custom iPhone and Android apps.",
+  "points": [
+   "Ordering and bookings",
+   "Loyalty and offers",
+   "Published on the App Store & Google Play"
+  ],
+  "cta": "Build your app",
+  "caption": "📱 Put your business in your customers' pockets. 2050 Connect builds custom iPhone and Android apps for ordering, bookings and loyalty — and publishes them for you.\n\n2050connect.com",
+  "tags": [
+   "#MobileApp",
+   "#AppDevelopment"
+  ]
+ },
+ {
+  "layout": "feature",
+  "kicker": "Digital management",
+  "headline": "One [dashboard] for everything",
+  "sub": "Sales, stock, staff, customers and money in one place.",
+  "points": [
+   "See sales in real time",
+   "Track stock and staff",
+   "Know your real profit"
+  ],
+  "cta": "Get organised",
+  "caption": "📊 Stop running your business from notebooks. A 2050 Connect management system puts sales, inventory, staff, customers and finances in one simple dashboard.\n\n2050connect.com",
+  "tags": [
+   "#BusinessManagement",
+   "#Dashboard"
+  ]
+ },
+ {
+  "layout": "statement",
+  "kicker": "Automation",
+  "headline": "Save [hours] every week.",
+  "sub": "Automatic invoices, reminders, reports and repetitive tasks.",
+  "cta": "Automate your business",
+  "caption": "⚡ Invoices, payment reminders, daily reports… let them run themselves. 2050 Connect automates the repetitive work so you can focus on growing.\n\n2050connect.com",
+  "tags": [
+   "#Automation",
+   "#Productivity"
+  ]
+ },
+ {
+  "layout": "feature",
+  "kicker": "Digital marketing",
+  "headline": "Bring new [customers] to your door",
+  "sub": "SEO, social media and online campaigns.",
+  "points": [
+   "Be found on Google",
+   "Grow on social media",
+   "Campaigns that bring sales"
+  ],
+  "cta": "Grow online",
+  "caption": "📣 Great businesses deserve to be found. 2050 Connect helps with SEO, social media and online campaigns that bring new customers straight to you.\n\n2050connect.com",
+  "tags": [
+   "#DigitalMarketing",
+   "#SEO"
+  ]
+ },
+ {
+  "layout": "steps",
+  "kicker": "How it works",
+  "headline": "From idea to [online] in 4 steps",
+  "points": [
+   "Discover — we learn your business",
+   "Design — we plan the right solution",
+   "Build & launch — and train your team",
+   "Grow — we support you after launch"
+  ],
+  "cta": "Start your project",
+  "caption": "🚀 How we work:\n01 Discover your business and goals\n02 Design the right website, app or system\n03 Build, test, launch and train your team\n04 Support and grow with you\n\n2050connect.com",
+  "tags": [
+   "#HowWeWork",
+   "#TechPartner"
+  ]
+ },
+ {
+  "layout": "statement",
+  "kicker": "Our work",
+  "headline": "We built [EasyBuy Africa].",
+  "sub": "An online marketplace with fast delivery and mobile money — website, iPhone and Android apps.",
+  "cta": "See our work",
+  "caption": "🛒 Made by 2050 Connect: EasyBuy Africa — an online shop for groceries, electronics, appliances, fashion and beauty, with fast delivery and mobile money payments. Website + iOS + Android.\n\nWant something like this? 2050connect.com",
+  "tags": [
+   "#Portfolio",
+   "#Ecommerce"
+  ]
+ },
+ {
+  "layout": "statement",
+  "kicker": "Our work",
+  "headline": "We built [Vamos Travel].",
+  "sub": "Taxis, car rental, tours and stays — bookable and payable online.",
+  "cta": "See our work",
+  "caption": "🧭 Made by 2050 Connect: Vamos Travel — taxi, car rental, guided tours, places to stay and travel packages, all bookable online with online payments in multiple currencies.\n\n2050connect.com",
+  "tags": [
+   "#Portfolio",
+   "#TravelTech"
+  ]
+ },
+ {
+  "layout": "feature",
+  "kicker": "Our work",
+  "headline": "Vamos Taxi & Tours [app]",
+  "sub": "A ride-hailing app built by 2050 Connect.",
+  "points": [
+   "Upfront fares",
+   "Live driver tracking",
+   "Cash, mobile money or card"
+  ],
+  "cta": "Build your app",
+  "caption": "🚕 Made by 2050 Connect: the Vamos Taxi & Tours app — fares shown upfront, live driver tracking, and payment by cash, mobile money or card. On iPhone and Android.\n\nNeed an app like this? 2050connect.com",
+  "tags": [
+   "#RideHailing",
+   "#AppDevelopment"
+  ]
+ },
+ {
+  "layout": "statement",
+  "kicker": "Our work",
+  "headline": "We built [Work Smart].",
+  "sub": "Owners see sales, staff and reports live. Workers clock in, record sales and send daily reports.",
+  "cta": "See our work",
+  "caption": "🏢 Made by 2050 Connect: Work Smart — a business manager where owners see sales, staff and reports in real time, and workers clock in and send daily reports from their phones.\n\n2050connect.com",
+  "tags": [
+   "#Portfolio",
+   "#SaaS"
+  ]
+ },
+ {
+  "layout": "feature",
+  "kicker": "Our work",
+  "headline": "Find me & [Find it]",
+  "sub": "Two more platforms built by 2050 Connect.",
+  "points": [
+   "Find me — meet people around shared activities",
+   "Find it — buy, sell & rent anything",
+   "Websites and mobile apps"
+  ],
+  "cta": "See our work",
+  "caption": "🔍💚 Also made by 2050 Connect: Find me, a social app for meeting people around shared activities, and Find it, a classifieds marketplace to buy, sell and rent anything.\n\n2050connect.com",
+  "tags": [
+   "#Portfolio",
+   "#AppDevelopment"
+  ]
+ },
+ {
+  "layout": "statement",
+  "kicker": "Our work",
+  "headline": "Smart systems for [EV charging].",
+  "sub": "We built the Vamos EV Charger management system: chargers, sessions and payments in one dashboard.",
+  "cta": "Build your system",
+  "caption": "⚡ Made by 2050 Connect: a management system for Vamos electric-vehicle charging stations — chargers, charging sessions and payments in one dashboard.\n\nNeed a custom business system? 2050connect.com",
+  "tags": [
+   "#ElectricVehicle",
+   "#CustomSoftware"
+  ]
+ },
+ {
+  "layout": "feature",
+  "kicker": "Retail",
+  "headline": "Shops that sell [online] too",
+  "sub": "Online store + stock + point of sale.",
+  "points": [
+   "Online store with delivery",
+   "Stock that updates itself",
+   "Mobile money payments"
+  ],
+  "cta": "Take your shop online",
+  "caption": "🛍️ Shop owners: sell in your shop AND online. 2050 Connect builds your online store, connects it to your stock and accepts mobile money.\n\n2050connect.com",
+  "tags": [
+   "#Retail",
+   "#ShopOwner"
+  ]
+ },
+ {
+  "layout": "feature",
+  "kicker": "Restaurants",
+  "headline": "More orders. [Less] chaos.",
+  "sub": "Digital tools for restaurants and cafés.",
+  "points": [
+   "Online menu and ordering",
+   "Table and kitchen screens",
+   "Daily sales reports"
+  ],
+  "cta": "Upgrade your restaurant",
+  "caption": "🍽️ Restaurants and cafés: online menus, ordering, kitchen screens and daily reports — 2050 Connect sets it all up for you.\n\n2050connect.com",
+  "tags": [
+   "#Restaurant",
+   "#FoodBusiness"
+  ]
+ },
+ {
+  "layout": "feature",
+  "kicker": "Clinics & salons",
+  "headline": "Bookings that run [themselves]",
+  "sub": "Appointments, reminders and payments online.",
+  "points": [
+   "Online booking 24/7",
+   "Automatic reminders",
+   "Client records in one place"
+  ],
+  "cta": "Get a booking system",
+  "caption": "💇🏥 Salons, spas and clinics: let clients book online any time, send automatic reminders and keep every record in one place.\n\n2050connect.com",
+  "tags": [
+   "#Salon",
+   "#Clinic"
+  ]
+ },
+ {
+  "layout": "feature",
+  "kicker": "Logistics",
+  "headline": "Track every [delivery]",
+  "sub": "Systems for transport and delivery businesses.",
+  "points": [
+   "Trips and drivers",
+   "Live tracking",
+   "Income per vehicle"
+  ],
+  "cta": "Digitise your fleet",
+  "caption": "🚚 Transport and delivery companies: know where every vehicle is, what every trip earned and what every driver spent — with a 2050 Connect system.\n\n2050connect.com",
+  "tags": [
+   "#Logistics",
+   "#Fleet"
+  ]
+ },
+ {
+  "layout": "feature",
+  "kicker": "Schools",
+  "headline": "Schools, [online]",
+  "sub": "Digital tools for schools and training centres.",
+  "points": [
+   "Student records and fees",
+   "Parent communication",
+   "Website and online enrolment"
+  ],
+  "cta": "Digitise your school",
+  "caption": "🏫 Schools and training centres: student records, fee tracking, parent communication and online enrolment — built by 2050 Connect.\n\n2050connect.com",
+  "tags": [
+   "#Education",
+   "#EdTech"
+  ]
+ },
+ {
+  "layout": "feature",
+  "kicker": "Real estate",
+  "headline": "Show every [property] online",
+  "sub": "Websites and systems for real estate.",
+  "points": [
+   "Property listings with photos",
+   "Enquiries straight to WhatsApp",
+   "Rent and tenant tracking"
+  ],
+  "cta": "Get a property website",
+  "caption": "🏘️ Real estate agents and landlords: show your properties online, receive enquiries on WhatsApp and track rent and tenants with 2050 Connect.\n\n2050connect.com",
+  "tags": [
+   "#RealEstate",
+   "#PropTech"
+  ]
+ },
+ {
+  "layout": "statement",
+  "kicker": "No tech skills needed",
+  "headline": "You run the business. We handle the [tech].",
+  "sub": "We build everything and train you in plain language.",
+  "cta": "Talk to our team",
+  "caption": "🙌 Do you need technical knowledge? Not at all. 2050 Connect handles everything technical and trains you and your team in plain language.\n\n2050connect.com",
+  "tags": [
+   "#SmallBusiness",
+   "#TechMadeSimple"
+  ]
+ },
+ {
+  "layout": "feature",
+  "kicker": "Starter plan",
+  "headline": "Get your business [online]",
+  "sub": "The Starter plan.",
+  "points": [
+   "Professional website",
+   "Contact & WhatsApp integration",
+   "Google Business setup"
+  ],
+  "cta": "Request a quote",
+  "caption": "🌱 Starting out? The 2050 Connect Starter plan gets your business online: a professional mobile-friendly website, WhatsApp contact and Google Business setup.\n\nRequest a quote at 2050connect.com",
+  "tags": [
+   "#Startup",
+   "#Website"
+  ]
+ },
+ {
+  "layout": "feature",
+  "kicker": "Growth plan",
+  "headline": "Sell and manage [online]",
+  "sub": "Our most popular plan.",
+  "points": [
+   "Online store or booking system",
+   "Management dashboard",
+   "Automation, reports & priority support"
+  ],
+  "cta": "Request a quote",
+  "caption": "📈 Our most popular plan: Growth. Everything in Starter plus an online store or booking system, a management dashboard, automation and reports, and priority support.\n\n2050connect.com",
+  "tags": [
+   "#BusinessGrowth",
+   "#Ecommerce"
+  ]
+ },
+ {
+  "layout": "feature",
+  "kicker": "Enterprise plan",
+  "headline": "Full digital [transformation]",
+  "sub": "For businesses ready to go all in.",
+  "points": [
+   "Custom mobile app",
+   "Custom business system",
+   "Team training & account manager"
+  ],
+  "cta": "Request a quote",
+  "caption": "🏢 Enterprise: everything in Growth plus a custom mobile app, a custom business system, team training and a dedicated account manager.\n\n2050connect.com",
+  "tags": [
+   "#Enterprise",
+   "#CustomSoftware"
+  ]
+ },
+ {
+  "layout": "statement",
+  "kicker": "After launch",
+  "headline": "We don't disappear after [launch].",
+  "sub": "Maintenance, updates, hosting help and real support.",
+  "cta": "Talk to our team",
+  "caption": "🤝 What happens after launch? We stay with you — maintenance, updates, hosting help and friendly support that keeps everything running.\n\n2050connect.com",
+  "tags": [
+   "#Support",
+   "#TechPartner"
+  ]
+ },
+ {
+  "layout": "feature",
+  "kicker": "Why 2050 Connect",
+  "headline": "One team for [everything]",
+  "sub": "Website, app and management tools from one partner.",
+  "points": [
+   "No juggling vendors",
+   "Secure and reliable",
+   "Real people who answer"
+  ],
+  "cta": "Work with us",
+  "caption": "✅ Why 2050 Connect? One team for your website, app and management tools. Modern security, backups and reliable hosting. And real people who answer when you need help.\n\n2050connect.com",
+  "tags": [
+   "#WhyUs",
+   "#TechPartner"
+  ]
+ },
+ {
+  "layout": "statement",
+  "kicker": "Timeline",
+  "headline": "Your website in [weeks], not months.",
+  "sub": "Apps and custom systems get a clear timeline before we start.",
+  "cta": "Start your project",
+  "caption": "⏱️ How long does it take? A website can be ready in a few weeks. For apps and custom systems, we give you a clear timeline before we start.\n\n2050connect.com",
+  "tags": [
+   "#Website",
+   "#ProjectPlanning"
+  ]
+ },
+ {
+  "layout": "feature",
+  "kicker": "Existing systems",
+  "headline": "Already have a system? We'll make it [better].",
+  "sub": "We connect, improve or replace what you use today.",
+  "points": [
+   "Connect your current tools",
+   "Move your data safely",
+   "Upgrade step by step"
+  ],
+  "cta": "Talk to our team",
+  "caption": "🔄 Already using some tools? 2050 Connect can connect to them, improve them, or move you to something better — whatever fits your business.\n\n2050connect.com",
+  "tags": [
+   "#Integration",
+   "#Upgrade"
+  ]
+ },
+ {
+  "layout": "statement",
+  "kicker": "Mobile money",
+  "headline": "Get paid [online], your customers' way.",
+  "sub": "We connect mobile money and card payments to your website and app.",
+  "cta": "Accept payments online",
+  "caption": "💳 Let customers pay you online with mobile money or card. 2050 Connect connects payments to your website or app.\n\n2050connect.com",
+  "tags": [
+   "#MobileMoney",
+   "#Payments"
+  ]
+ },
+ {
+  "layout": "feature",
+  "kicker": "Remote business",
+  "headline": "Your business, [open 24/7]",
+  "sub": "Move your operations online.",
+  "points": [
+   "Customers order any time",
+   "Staff report from anywhere",
+   "You see it all live"
+  ],
+  "cta": "Go remote",
+  "caption": "🌙 Customers can order at midnight, staff can report from anywhere, and you can see it all live. 2050 Connect moves your operations online.\n\n2050connect.com",
+  "tags": [
+   "#RemoteBusiness",
+   "#24x7"
+  ]
+ },
+ {
+  "layout": "statement",
+  "kicker": "2050 Connect",
+  "headline": "Let's bring your business into [2050].",
+  "sub": "Free consultation · rw2050connect@gmail.com · +250 788 265 156",
+  "cta": "Get started",
+  "caption": "🚀 Let's bring your business into 2050. Tell us about your business and what you want to achieve — we'll come back with ideas and a free consultation.\n\n📧 rw2050connect@gmail.com\n📞 +250 788 265 156\n2050connect.com",
+  "tags": [
+   "#Startup",
+   "#Tech"
+  ]
+ }
 ]

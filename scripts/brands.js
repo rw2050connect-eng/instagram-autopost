@@ -11,7 +11,7 @@ module.exports = {
     light: '#EEF3FC',
     site: '2050connect.com',
     motif: 'circuit',
-    baseTags: ['#2050Connect', '#Kigali', '#Rwanda', '#DigitalTransformation', '#SmallBusiness'],
+    baseTags: ['#2050Connect', '#DigitalTransformation', '#SmallBusiness', '#Worldwide', '#Global'],
   },
   easybuy: {
     name: 'EasyBuy Africa',
@@ -50,7 +50,7 @@ module.exports = {
     light: '#EEF6F1',
     site: 'vamosrw.com',
     motif: 'hills',
-    baseTags: ['#VamosTravel', '#VisitRwanda', '#Rwanda', '#Kigali', '#TravelRwanda'],
+    baseTags: ['#VamosTravel', '#Travel', '#Wanderlust', '#Worldwide', '#TravelTheWorld'],
   },
   worksmart: {
     name: 'Work Smart',
@@ -63,7 +63,7 @@ module.exports = {
     light: '#EEF2FC',
     site: 'useworksmart.com',
     motif: 'circuit',
-    baseTags: ['#WorkSmart', '#SmallBusiness', '#Rwanda', '#Kigali', '#BusinessTools'],
+    baseTags: ['#WorkSmart', '#SmallBusiness', '#BusinessTools', '#Worldwide', '#Global'],
   },
   findme: {
     name: 'Find me',
@@ -76,7 +76,7 @@ module.exports = {
     light: '#F7F1EA',
     site: 'joinfindme.com',
     motif: 'photo',
-    baseTags: ['#FindMeApp', '#MeetNewPeople', '#Africa', '#Kigali', '#MakeFriends'],
+    baseTags: ['#FindMeApp', '#MeetNewPeople', '#MakeFriends', '#Worldwide', '#Global'],
   },
   findit: {
     name: 'Find it',
@@ -89,6 +89,6 @@ module.exports = {
     light: '#EEF3FE',
     site: 'find250.com',
     motif: 'search',
-    baseTags: ['#FindIt', '#Find250', '#Rwanda', '#Kigali', '#BuyAndSell'],
+    baseTags: ['#FindIt', '#Find250', '#BuyAndSell', '#Worldwide', '#Global'],
   },
 };
