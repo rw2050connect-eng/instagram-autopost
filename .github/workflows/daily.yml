@@ -2,7 +2,8 @@ name: Daily Instagram posts
 
 on:
   schedule:
-    - cron: '40 5 * * *'   # 05:40 UTC = 07:40 Kigali (GitHub often starts a few minutes late, so posts land around 8 AM)
+    - cron: '35 2 * * *'   # 04:35 Kigali — GitHub often starts scheduled runs hours late, so start early;
+    - cron: '35 4 * * *'   # 06:35 Kigali — backup start. The script waits until 8:00 AM Kigali and never posts twice a day.
   workflow_dispatch:
     inputs:
       only:
@@ -23,7 +24,7 @@ concurrency:
 jobs:
   post:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 300
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

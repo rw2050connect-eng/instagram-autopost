@@ -165,6 +165,12 @@ function git(cmd) { return execSync(cmd, { cwd: ROOT, stdio: 'pipe' }).toString(
 
 (async () => {
   console.log(`📅 ${DATE} (day ${DAY})${DRY ? ' — DRY RUN' : ''}`);
+  // GitHub often starts scheduled runs late, so the workflow starts early and we wait here until 8:00 Kigali.
+  if (!DRY && !arg('--date') && process.env.GITHUB_EVENT_NAME === 'schedule') {
+    const kigaliMin = () => { const d = new Date(Date.now() + 2 * 3600e3); return d.getUTCHours() * 60 + d.getUTCMinutes(); };
+    const wait = 8 * 60 - kigaliMin();
+    if (wait > 0) { console.log(`⏳ waiting ${wait} min until 8:00 AM Kigali`); await sleep(wait * 60e3); }
+  }
   const state = readJSON('state/state.json', { easybuyHistory: [], log: [] });
   const done = new Set((state.log || []).filter(l => l.date === DATE && l.ok).map(l => l.app));
   const posts = (await buildPosts(state)).filter(p => !done.has(p.app));
