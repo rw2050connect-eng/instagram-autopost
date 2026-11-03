@@ -2,7 +2,8 @@
   "easybuyHistory": [
     "a91fb637-53bd-417b-a630-c2440eb689cb",
     "a671ec06-c513-476c-bea7-846711b7b20a",
-    "ac711475-6e52-4aba-be87-29f072d19a0b"
+    "ac711475-6e52-4aba-be87-29f072d19a0b",
+    "d8788563-2232-4b0e-8d5d-410f84ab9eac"
   ],
   "log": [
     {
@@ -160,6 +161,12 @@
       "app": "findit",
       "ok": true,
       "permalink": "https://www.instagram.com/p/DfRMTdOlGRg/"
+    },
+    {
+      "date": "2026-11-03",
+      "app": "easybuy2",
+      "ok": true,
+      "permalink": "https://www.instagram.com/p/DfRxM5dF8Wt/"
     }
   ]
 }
