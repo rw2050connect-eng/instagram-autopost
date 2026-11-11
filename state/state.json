@@ -9,7 +9,9 @@
     "4cfddb9d-1527-4456-8b06-ea6999c9a7bc",
     "19691b9a-c9d1-411f-a86d-7570cef8f9e2",
     "c39a34ad-9fb3-4363-bd8e-1fb60f21fa87",
-    "e419352c-a8a5-4378-a6d5-1d327175b9a9"
+    "e419352c-a8a5-4378-a6d5-1d327175b9a9",
+    "d4de8ede-ea98-4d2c-8bb0-b00abc77cd7c",
+    "755adbb8-d999-4969-b945-ddf82b7360c0"
   ],
   "log": [
     {
@@ -467,6 +469,48 @@
       "app": "findit",
       "ok": true,
       "permalink": "https://www.instagram.com/p/DfjN6nADoaW/"
+    },
+    {
+      "date": "2026-11-11",
+      "app": "connect",
+      "ok": true,
+      "permalink": "https://www.instagram.com/p/DflyivZDckB/"
+    },
+    {
+      "date": "2026-11-11",
+      "app": "easybuy",
+      "ok": true,
+      "permalink": "https://www.instagram.com/p/DflykbEjeo4/"
+    },
+    {
+      "date": "2026-11-11",
+      "app": "easybuy2",
+      "ok": true,
+      "permalink": "https://www.instagram.com/p/Dflyl-Hjd2d/"
+    },
+    {
+      "date": "2026-11-11",
+      "app": "vamos",
+      "ok": true,
+      "permalink": "https://www.instagram.com/p/DflynLqjcG5/"
+    },
+    {
+      "date": "2026-11-11",
+      "app": "worksmart",
+      "ok": true,
+      "permalink": "https://www.instagram.com/p/DflyoswDR6c/"
+    },
+    {
+      "date": "2026-11-11",
+      "app": "findme",
+      "ok": true,
+      "permalink": "https://www.instagram.com/p/DflyqGNjcPr/"
+    },
+    {
+      "date": "2026-11-11",
+      "app": "findit",
+      "ok": true,
+      "permalink": "https://www.instagram.com/p/DflyrcHDUHX/"
     }
   ]
 }
