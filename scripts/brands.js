@@ -91,4 +91,18 @@ module.exports = {
     motif: 'search',
     baseTags: ['#FindIt', '#Find250', '#BuyAndSell', '#Worldwide', '#Global'],
   },
+  abunora: {
+    name: 'Abu Nora',
+    handle: '@_abu_nora_',
+    logo: 'brand/abunora-icon.png',
+    logoBg: '#0F172A',
+    primary: '#0F172A',
+    dark: '#020617',
+    accent: '#22D3EE',
+    accent2: '#A78BFA',
+    light: '#EEF2FF',
+    site: '@_abu_nora_',
+    motif: 'circuit',
+    baseTags: ['#WebDevelopment', '#MobileDevelopment', '#Programming', '#Developer', '#CodingTips'],
+  },
 };

@@ -1,0 +1,470 @@
+[
+ {
+  "layout": "feature",
+  "kicker": "Web tip",
+  "headline": "Make your site [load fast]",
+  "sub": "Speed is the first feature users notice.",
+  "points": [
+   "Compress and resize images (WebP/AVIF)",
+   "Lazy-load anything below the fold",
+   "Ship less JavaScript",
+   "Cache static files with a CDN"
+  ],
+  "cta": "Save this for your next build",
+  "caption": "⚡ A slow site loses visitors before they read a word. Quick wins: modern image formats, lazy loading, less JavaScript and a CDN for static files.\n\nFollow @_abu_nora_ for daily web & mobile dev tips.",
+  "tags": [
+   "#WebPerformance",
+   "#Frontend"
+  ]
+ },
+ {
+  "layout": "statement",
+  "kicker": "Mindset",
+  "headline": "Ship it, then [improve] it.",
+  "sub": "A working v1 beats a perfect idea that never launches.",
+  "cta": "Ship something today",
+  "caption": "🚀 Your first version will not be perfect, and that is fine. Launch small, get real feedback, then improve. Users can't use the app that lives only in your head.\n\nFollow @_abu_nora_ for daily web & mobile dev tips.",
+  "tags": [
+   "#BuildInPublic",
+   "#IndieHacker"
+  ]
+ },
+ {
+  "layout": "steps",
+  "kicker": "Mobile",
+  "headline": "Build your first [mobile app]",
+  "points": [
+   "Pick one: Flutter or React Native",
+   "Build one screen that solves one problem",
+   "Add a backend like Supabase or Firebase",
+   "Test on a real phone, then publish"
+  ],
+  "cta": "Start this weekend",
+  "caption": "📱 Want to build your first app? Choose one cross-platform framework, solve one small problem on one screen, connect a ready backend and test on a real device before publishing.\n\nFollow @_abu_nora_ for daily web & mobile dev tips.",
+  "tags": [
+   "#Flutter",
+   "#ReactNative"
+  ]
+ },
+ {
+  "layout": "feature",
+  "kicker": "CSS tip",
+  "headline": "Center anything with [Flexbox]",
+  "sub": "Three lines. Every time.",
+  "points": [
+   "display: flex;",
+   "justify-content: center;",
+   "align-items: center;"
+  ],
+  "cta": "Copy it",
+  "caption": "🎯 Still fighting to center a div? Put these three lines on the parent: display flex, justify-content center, align-items center. Done. Grid works too: display grid + place-items center.\n\nFollow @_abu_nora_ for daily web & mobile dev tips.",
+  "tags": [
+   "#CSS",
+   "#Frontend"
+  ]
+ },
+ {
+  "layout": "feature",
+  "kicker": "Security",
+  "headline": "Never commit your [secrets]",
+  "sub": "One leaked key can cost you everything.",
+  "points": [
+   "Keep keys in .env files",
+   "Add .env to .gitignore",
+   "Use your host's secret settings",
+   "Rotate any key that leaked"
+  ],
+  "cta": "Check your repo now",
+  "caption": "🔐 API keys pushed to GitHub get found by bots within minutes. Keep secrets in environment variables, ignore your .env file and rotate any key that was ever exposed.\n\nFollow @_abu_nora_ for daily web & mobile dev tips.",
+  "tags": [
+   "#CyberSecurity",
+   "#Git"
+  ]
+ },
+ {
+  "layout": "statement",
+  "kicker": "Career",
+  "headline": "Your GitHub is your [CV].",
+  "sub": "Build real projects and show them.",
+  "cta": "Push a project today",
+  "caption": "💼 Employers and clients want proof, not just certificates. A few finished, well-documented projects on GitHub say more than a long list of skills.\n\nFollow @_abu_nora_ for daily web & mobile dev tips.",
+  "tags": [
+   "#DeveloperCareer",
+   "#GitHub"
+  ]
+ },
+ {
+  "layout": "feature",
+  "kicker": "Web tip",
+  "headline": "Make it [responsive] from day one",
+  "sub": "Most of your users are on a phone.",
+  "points": [
+   "Design mobile-first",
+   "Use rem, %, and clamp() for sizes",
+   "Test on small screens early",
+   "Tap targets at least 44px"
+  ],
+  "cta": "Open your site on a phone",
+  "caption": "📲 Most visitors will open your site on a phone. Design mobile-first, use flexible units, test small screens early and keep buttons big enough to tap.\n\nFollow @_abu_nora_ for daily web & mobile dev tips.",
+  "tags": [
+   "#ResponsiveDesign",
+   "#UXDesign"
+  ]
+ },
+ {
+  "layout": "steps",
+  "kicker": "Git",
+  "headline": "A clean [Git] workflow",
+  "points": [
+   "Create a branch for each feature",
+   "Commit small, with clear messages",
+   "Open a pull request and review",
+   "Merge to main and delete the branch"
+  ],
+  "cta": "Try it on your next feature",
+  "caption": "🌿 A simple Git habit saves teams hours: one branch per feature, small commits with clear messages, a pull request for review, then merge and clean up.\n\nFollow @_abu_nora_ for daily web & mobile dev tips.",
+  "tags": [
+   "#Git",
+   "#Coding"
+  ]
+ },
+ {
+  "layout": "feature",
+  "kicker": "API tip",
+  "headline": "Design APIs people [love] to use",
+  "sub": "Good APIs feel obvious.",
+  "points": [
+   "Use clear nouns: /users, /orders",
+   "Return the right status codes",
+   "Paginate long lists",
+   "Write short, real examples"
+  ],
+  "cta": "Review your endpoints",
+  "caption": "🔌 A good API needs almost no explanation. Clear resource names, correct HTTP status codes, pagination for big lists and real examples in the docs.\n\nFollow @_abu_nora_ for daily web & mobile dev tips.",
+  "tags": [
+   "#API",
+   "#Backend"
+  ]
+ },
+ {
+  "layout": "statement",
+  "kicker": "Learning",
+  "headline": "Build projects, not [tutorials].",
+  "sub": "Tutorials teach syntax. Projects teach you to think.",
+  "cta": "Pick a project idea",
+  "caption": "🧠 Stuck in tutorial hell? Close the video and build something you actually need: a to-do app, a budget tracker, a portfolio. You learn most when you get stuck and fix it yourself.\n\nFollow @_abu_nora_ for daily web & mobile dev tips.",
+  "tags": [
+   "#LearnToCode",
+   "#100DaysOfCode"
+  ]
+ },
+ {
+  "layout": "feature",
+  "kicker": "Mobile tip",
+  "headline": "Make your app feel [fast]",
+  "sub": "Perceived speed matters as much as real speed.",
+  "points": [
+   "Show skeleton loaders",
+   "Cache data for offline use",
+   "Load images progressively",
+   "Respond to every tap instantly"
+  ],
+  "cta": "Save for later",
+  "caption": "⚡ Users judge an app's speed in the first second. Skeleton screens, offline caching, progressive images and instant tap feedback make any app feel faster.\n\nFollow @_abu_nora_ for daily web & mobile dev tips.",
+  "tags": [
+   "#MobileApp",
+   "#AppDevelopment"
+  ]
+ },
+ {
+  "layout": "feature",
+  "kicker": "Debugging",
+  "headline": "Debug like a [pro]",
+  "sub": "Stop guessing. Start narrowing.",
+  "points": [
+   "Reproduce the bug every time",
+   "Read the full error message",
+   "Check what changed last",
+   "Isolate it with small tests"
+  ],
+  "cta": "Use this on your next bug",
+  "caption": "🐞 Most bugs are found by narrowing, not guessing. Reproduce it, read the whole error, look at what changed recently and test small pieces until only the problem is left.\n\nFollow @_abu_nora_ for daily web & mobile dev tips.",
+  "tags": [
+   "#Debugging",
+   "#Coding"
+  ]
+ },
+ {
+  "layout": "statement",
+  "kicker": "Code quality",
+  "headline": "Write code for the [next] developer.",
+  "sub": "That developer is usually you, six months later.",
+  "cta": "Rename one variable today",
+  "caption": "✍️ Clear names, small functions and a short comment where the 'why' isn't obvious. Future-you will be grateful.\n\nFollow @_abu_nora_ for daily web & mobile dev tips.",
+  "tags": [
+   "#CleanCode",
+   "#SoftwareEngineering"
+  ]
+ },
+ {
+  "layout": "steps",
+  "kicker": "Web",
+  "headline": "Launch a website in [one day]",
+  "points": [
+   "Buy a domain",
+   "Build with a template or framework",
+   "Deploy free on Vercel or Netlify",
+   "Connect the domain and add HTTPS"
+  ],
+  "cta": "Launch yours",
+  "caption": "🌍 Getting online is easier than ever: grab a domain, build from a template or framework, deploy free on Vercel or Netlify and connect your domain with free HTTPS.\n\nFollow @_abu_nora_ for daily web & mobile dev tips.",
+  "tags": [
+   "#WebDesign",
+   "#Startup"
+  ]
+ },
+ {
+  "layout": "feature",
+  "kicker": "Database tip",
+  "headline": "Keep your database [fast]",
+  "sub": "Small habits, big speed.",
+  "points": [
+   "Index the columns you search",
+   "Fetch only the fields you need",
+   "Avoid queries inside loops",
+   "Paginate results"
+  ],
+  "cta": "Check your slow queries",
+  "caption": "🗄️ A slow app is often a slow database. Add indexes on columns you filter by, select only what you need, avoid N+1 queries and paginate large results.\n\nFollow @_abu_nora_ for daily web & mobile dev tips.",
+  "tags": [
+   "#Database",
+   "#Backend"
+  ]
+ },
+ {
+  "layout": "feature",
+  "kicker": "Accessibility",
+  "headline": "Build for [everyone]",
+  "sub": "Accessible sites are better sites.",
+  "points": [
+   "Add alt text to images",
+   "Keep good color contrast",
+   "Label every form field",
+   "Make it work with a keyboard"
+  ],
+  "cta": "Test with your keyboard",
+  "caption": "♿ Accessibility helps every user, not just some. Alt text, strong contrast, labelled inputs and full keyboard support are simple to add from the start.\n\nFollow @_abu_nora_ for daily web & mobile dev tips.",
+  "tags": [
+   "#Accessibility",
+   "#A11y"
+  ]
+ },
+ {
+  "layout": "statement",
+  "kicker": "Freelancing",
+  "headline": "Sell [solutions], not code.",
+  "sub": "Clients pay for results.",
+  "cta": "Rewrite your pitch",
+  "caption": "💡 Clients don't buy 'a React website'. They buy more customers, less paperwork, faster orders. Talk about the problem you solve, and the price conversation gets easier.\n\nFollow @_abu_nora_ for daily web & mobile dev tips.",
+  "tags": [
+   "#Freelancer",
+   "#FreelanceDeveloper"
+  ]
+ },
+ {
+  "layout": "feature",
+  "kicker": "Mobile tip",
+  "headline": "Before you [publish] your app",
+  "sub": "A quick launch checklist.",
+  "points": [
+   "Test on old and new phones",
+   "Add a privacy policy",
+   "Prepare clear screenshots",
+   "Set up crash reporting"
+  ],
+  "cta": "Save this checklist",
+  "caption": "✅ Before you hit publish on Play Store or App Store: test on different devices, add a privacy policy, prepare great screenshots and turn on crash reporting.\n\nFollow @_abu_nora_ for daily web & mobile dev tips.",
+  "tags": [
+   "#PlayStore",
+   "#AppStore"
+  ]
+ },
+ {
+  "layout": "feature",
+  "kicker": "JavaScript",
+  "headline": "Write [cleaner] JavaScript",
+  "sub": "Modern syntax that reads better.",
+  "points": [
+   "Use const by default",
+   "Optional chaining: user?.name",
+   "Default values: name ?? 'Guest'",
+   "async/await over long .then chains"
+  ],
+  "cta": "Refactor one file",
+  "caption": "🟨 Small modern JavaScript habits make code easier to read: const by default, optional chaining, nullish coalescing and async/await.\n\nFollow @_abu_nora_ for daily web & mobile dev tips.",
+  "tags": [
+   "#JavaScript",
+   "#WebDev"
+  ]
+ },
+ {
+  "layout": "steps",
+  "kicker": "Idea",
+  "headline": "Turn an idea into an [MVP]",
+  "points": [
+   "Write the one problem it solves",
+   "List only the must-have features",
+   "Build it in 2–4 weeks",
+   "Put it in front of 10 real users"
+  ],
+  "cta": "Start your MVP",
+  "caption": "🛠️ An MVP is the smallest thing that proves your idea. One problem, only must-have features, a short build, then real users and feedback.\n\nFollow @_abu_nora_ for daily web & mobile dev tips.",
+  "tags": [
+   "#MVP",
+   "#Startup"
+  ]
+ },
+ {
+  "layout": "feature",
+  "kicker": "Security",
+  "headline": "Protect your [users]",
+  "sub": "Basics every app needs.",
+  "points": [
+   "Hash passwords (never store them plain)",
+   "Validate all input on the server",
+   "Use HTTPS everywhere",
+   "Limit login attempts"
+  ],
+  "cta": "Check your app",
+  "caption": "🛡️ Security basics that every web and mobile app needs: hashed passwords, server-side validation, HTTPS everywhere and rate-limited logins.\n\nFollow @_abu_nora_ for daily web & mobile dev tips.",
+  "tags": [
+   "#CyberSecurity",
+   "#Backend"
+  ]
+ },
+ {
+  "layout": "statement",
+  "kicker": "Tools",
+  "headline": "Learn your [editor] shortcuts.",
+  "sub": "Minutes saved every hour add up to days.",
+  "cta": "Learn 3 shortcuts today",
+  "caption": "⌨️ Multi-cursor, go to file, rename symbol, format document. Learn a few editor shortcuts each week and you'll code noticeably faster.\n\nFollow @_abu_nora_ for daily web & mobile dev tips.",
+  "tags": [
+   "#VSCode",
+   "#Productivity"
+  ]
+ },
+ {
+  "layout": "feature",
+  "kicker": "UI tip",
+  "headline": "Make your UI look [professional]",
+  "sub": "Simple rules, big difference.",
+  "points": [
+   "Use one or two fonts",
+   "Stick to a small color palette",
+   "Give everything more space",
+   "Keep spacing consistent"
+  ],
+  "cta": "Apply it to one screen",
+  "caption": "🎨 You don't need to be a designer for a clean UI: limit fonts and colors, add more white space and use consistent spacing everywhere.\n\nFollow @_abu_nora_ for daily web & mobile dev tips.",
+  "tags": [
+   "#UIDesign",
+   "#UXDesign"
+  ]
+ },
+ {
+  "layout": "feature",
+  "kicker": "Backend tip",
+  "headline": "Pick the right [backend]",
+  "sub": "Match the tool to the project.",
+  "points": [
+   "Supabase or Firebase: launch fast",
+   "Node.js / Express: full control",
+   "Laravel or Django: batteries included",
+   "Start simple, scale later"
+  ],
+  "cta": "Choose for your next app",
+  "caption": "⚙️ There's no single best backend. Need to launch fast? Supabase or Firebase. Want full control? Node.js. Want everything built-in? Laravel or Django.\n\nFollow @_abu_nora_ for daily web & mobile dev tips.",
+  "tags": [
+   "#Backend",
+   "#NodeJS"
+  ]
+ },
+ {
+  "layout": "statement",
+  "kicker": "Growth",
+  "headline": "Read other people's [code].",
+  "sub": "It's the fastest way to level up.",
+  "cta": "Open a repo you like",
+  "caption": "📖 Pick an open-source project you use and read how it's built. You'll learn patterns, naming and structure no tutorial covers.\n\nFollow @_abu_nora_ for daily web & mobile dev tips.",
+  "tags": [
+   "#OpenSource",
+   "#LearnToCode"
+  ]
+ },
+ {
+  "layout": "steps",
+  "kicker": "PWA",
+  "headline": "Make your site [installable]",
+  "points": [
+   "Add a web app manifest",
+   "Register a service worker",
+   "Cache key pages for offline",
+   "Serve it over HTTPS"
+  ],
+  "cta": "Turn your site into an app",
+  "caption": "📲 A Progressive Web App lets users install your website like an app, with offline support. Manifest, service worker, caching and HTTPS are all you need.\n\nFollow @_abu_nora_ for daily web & mobile dev tips.",
+  "tags": [
+   "#PWA",
+   "#WebDev"
+  ]
+ },
+ {
+  "layout": "feature",
+  "kicker": "Testing",
+  "headline": "Test what [matters] most",
+  "sub": "You don't need 100% coverage.",
+  "points": [
+   "Test payments and logins first",
+   "Write a test for every bug you fix",
+   "Automate tests in CI",
+   "Keep tests fast"
+  ],
+  "cta": "Add one test today",
+  "caption": "🧪 Start testing the parts that would hurt most if they broke: payments, auth, core flows. Add a test with every bug fix and run them automatically.\n\nFollow @_abu_nora_ for daily web & mobile dev tips.",
+  "tags": [
+   "#Testing",
+   "#SoftwareEngineering"
+  ]
+ },
+ {
+  "layout": "feature",
+  "kicker": "SEO tip",
+  "headline": "Help Google [find] your site",
+  "sub": "SEO basics every developer should do.",
+  "points": [
+   "One clear title and description per page",
+   "Use real headings (h1, h2)",
+   "Fast, mobile-friendly pages",
+   "Submit a sitemap"
+  ],
+  "cta": "Check your pages",
+  "caption": "🔎 Good SEO starts in the code: unique titles and descriptions, proper headings, fast mobile pages and a sitemap submitted to Google Search Console.\n\nFollow @_abu_nora_ for daily web & mobile dev tips.",
+  "tags": [
+   "#SEO",
+   "#WebDevelopment"
+  ]
+ },
+ {
+  "layout": "statement",
+  "kicker": "Mindset",
+  "headline": "Every expert was once a [beginner].",
+  "sub": "Keep building. Keep shipping.",
+  "cta": "Write one line of code today",
+  "caption": "🌱 The developers you admire were once stuck on the same errors you see today. Show up, build a little every day, and look back in six months.\n\nFollow @_abu_nora_ for daily web & mobile dev tips.",
+  "tags": [
+   "#DeveloperLife",
+   "#100DaysOfCode"
+  ]
+ }
+]
