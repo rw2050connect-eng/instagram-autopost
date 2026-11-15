@@ -248,8 +248,8 @@ function git(cmd) { return execSync(cmd, { cwd: ROOT, stdio: 'pipe' }).toString(
   if (DRY) return;
 
   // images must be online before Instagram can fetch them
+  if (!NO_GIT) git('git config user.name "2050 Connect autopost" && git config user.email "rw2050connect@gmail.com"');
   if (!NO_GIT && SLOT === 'morning') {
-    git('git config user.name "2050 Connect autopost" && git config user.email "rw2050connect@gmail.com"');
     git(`git add posts/${DATE} && git commit -m "Posts for ${DATE}" || true`);
     git(`git push origin HEAD:${BRANCH}`);
     await sleep(8000);
@@ -281,9 +281,11 @@ function git(cmd) { return execSync(cmd, { cwd: ROOT, stdio: 'pipe' }).toString(
   writeJSON('state/state.json', state);
   saveAccounts(accounts);
   if (!NO_GIT) {
-    git('git add state && git commit -m "Update post log" || true');
-    git(`git pull --rebase origin ${BRANCH} || true`);
-    git(`git push origin HEAD:${BRANCH}`);
+    git(`git add state && git commit -m "Update post log (${DATE} ${SLOT})" || true`);
+    for (let k = 1; ; k++) { // someone else may have changed the repo meanwhile: pull and retry
+      try { git(`git pull --rebase --autostash origin ${BRANCH}`); git(`git push origin HEAD:${BRANCH}`); break; }
+      catch (e) { if (k >= 4) throw e; console.log(`retrying save (${k})`); await sleep(5000 * k); }
+    }
   }
   if (failures) { console.error(`${failures} post(s) failed`); process.exit(1); }
 })().catch(e => { console.error(e); process.exit(1); });
