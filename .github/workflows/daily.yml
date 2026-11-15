@@ -4,8 +4,12 @@ on:
   schedule:
     - cron: '35 2 * * *'   # 04:35 Kigali — GitHub often starts scheduled runs hours late, so start early;
     - cron: '35 4 * * *'   # 06:35 Kigali — backup start. The script waits until 8:00 AM Kigali and never posts twice a day.
+    - cron: '35 11 * * *'  # 13:35 Kigali — backup start for the 5 PM Reel (the Cloudflare alarm normally starts it at 17:00)
   workflow_dispatch:
     inputs:
+      slot:
+        description: 'morning (picture) or evening (Reel). Empty = by the time of day in Kigali.'
+        required: false
       only:
         description: 'Only these accounts (e.g. easybuy,vamos). Leave empty for all.'
         required: false
@@ -33,11 +37,14 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx playwright install --with-deps chromium
+      - name: Video tool
+        run: which ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
       - name: Make and publish today's posts
         env:
           IG_ACCOUNTS: ${{ secrets.IG_ACCOUNTS }}
         run: |
           ARGS=""
+          if [ -n "${{ inputs.slot }}" ]; then ARGS="$ARGS --slot ${{ inputs.slot }}"; fi
           if [ -n "${{ inputs.only }}" ]; then ARGS="$ARGS --only ${{ inputs.only }}"; fi
           if [ "${{ inputs.dry }}" = "true" ]; then ARGS="$ARGS --dry"; fi
           node scripts/daily.js $ARGS

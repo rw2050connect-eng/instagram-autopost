@@ -5,6 +5,7 @@ const path = require('path');
 const crypto = require('crypto');
 const { execSync } = require('child_process');
 const { renderAll } = require('./render');
+const { makeReel } = require('./reel');
 const BRANDS = require('./brands');
 
 const ROOT = path.join(__dirname, '..');
@@ -13,9 +14,12 @@ const arg = (k) => { const i = args.indexOf(k); return i >= 0 ? args[i + 1] : nu
 const DRY = args.includes('--dry');
 const NO_GIT = args.includes('--no-git');
 const ONLY = arg('--only') ? arg('--only').split(',') : null;
+const kigaliNow = () => new Date(Date.now() + 2 * 3600e3);
+// Two posts a day: 'morning' = picture at 8:00, 'evening' = Reel at 17:00 (Kigali)
+const SLOT = arg('--slot') || process.env.SLOT || (kigaliNow().getUTCHours() >= 12 ? 'evening' : 'morning');
 
 const START = '2026-11-01'; // day 0 of the content calendar
-const APPS = ['connect', 'easybuy', 'easybuy2', 'vamos', 'worksmart', 'findme', 'findit'];
+const APPS = ['connect', 'easybuy', 'easybuy2', 'vamos', 'worksmart', 'findme', 'findit', 'abunora'];
 const REPO = process.env.GITHUB_REPOSITORY || 'rw2050connect-eng/instagram-autopost';
 const BRANCH = process.env.GITHUB_REF_NAME || 'main';
 const GRAPH = 'https://graph.facebook.com/v26.0';
@@ -38,6 +42,7 @@ const IG_USERNAMES = {
   findme: 'find_me_nearby',
   findit: 'find250_',
   connect: '2050connect',
+  abunora: '', // _abu_nora_ — set once it is linked to a Facebook Page
 };
 // The GitHub secret IG_ACCOUNTS holds a long-lived Facebook user token (from Graph API Explorer).
 // From it we get each Page's token (Page tokens made from a long-lived user token never expire)
@@ -110,16 +115,46 @@ async function easybuyProduct(cfg, history, variant = '') {
   return null;
 }
 
+async function easybuyProducts(cfg, exclude, variant, count = 3) {
+  const out = []; const seen = new Set(exclude);
+  const kws = cfg.productKeywords;
+  for (let i = 0; i < kws.length * 2 && out.length < count; i++) {
+    const c = { ...cfg, productKeywords: [pick(kws, DAY * 3 + (variant ? 11 : 0) + i * 5)] };
+    const live = await easybuyProduct(c, [...seen], variant + i);
+    if (live && !seen.has(live.product.id) && live.product.origin !== 'china') { seen.add(live.product.id); out.push(live); }
+  }
+  return out;
+}
+
 // ---------- build today's posts ----------
 async function buildPosts(state) {
   const posts = [];
-  let mainProductId = null;
+  let mainProductId = null; let mainReelIds = [];
   for (const app of APPS) {
     if (ONLY && !ONLY.includes(app)) continue;
     if (!DRY && !IG_USERNAMES[app]) continue; // not connected to Instagram yet
     const b = BRANDS[app];
     let post;
-    if (app === 'easybuy' || app === 'easybuy2') {
+    const isEB = app === 'easybuy' || app === 'easybuy2';
+    if (SLOT === 'evening') {
+      if (isEB) {
+        const alt = app === 'easybuy2';
+        const cfg = readJSON('content/easybuy.json');
+        const prods = await easybuyProducts(cfg, [...(state.easybuyHistory || []).slice(-60), ...(alt ? mainReelIds : [])], alt ? 'r2' : 'r1');
+        if (prods.length >= 2) {
+          if (!alt) mainReelIds = prods.map(p => p.product.id);
+          const lines = prods.map(p => `• ${p.title} — ${Number(p.product.price_rwf).toLocaleString('en-US')} RWF`).join('\n');
+          post = { app, reelProducts: prods.map(p => ({ image: p.img, price: p.product.price_rwf, name: p.title })),
+            caption: `${alt ? '🔥 Hot right now on EasyBuy Africa' : "🛍️ Today's picks on EasyBuy Africa"}:\n\n${lines}\n\n🛵 Delivered in Kigali, often in 90 minutes.\n💳 Pay with MoMo, Airtel Money or cash.\n\nOrder on easybuyrw.com or in the EasyBuy Africa app — link in bio.`,
+            tags: ['#DealOfTheDay', '#Reels'], productIds: prods.map(p => p.product.id) };
+        } else {
+          post = { app, ...pick(alt && cfg.postsAlt ? cfg.postsAlt : cfg.posts, Math.floor(DAY / 2) + 8) };
+        }
+      } else {
+        post = { app, ...pick(readJSON(`content/${app}.json`), DAY + 15) };
+      }
+      post.reel = true;
+    } else if (isEB) {
       const alt = app === 'easybuy2';
       const cfg = readJSON('content/easybuy.json');
       let live = null;
@@ -135,7 +170,8 @@ async function buildPosts(state) {
     } else {
       post = { app, ...pick(readJSON(`content/${app}.json`), DAY) };
     }
-    const tags = [...new Set([...(post.tags || []), ...b.baseTags])].join(' ');
+    // Instagram allows at most 5 hashtags
+    const tags = [...new Set([...(post.tags || []), ...b.baseTags])].slice(0, 5).join(' ');
     post.fullCaption = `${post.caption}\n\n${tags}`;
     posts.push(post);
   }
@@ -161,29 +197,58 @@ async function igPublish(acc, imageUrl, caption) {
   return { id: j.id, permalink: p.permalink };
 }
 
+async function igPublishReel(acc, file, caption) {
+  const size = fs.statSync(file).size;
+  const q = (o) => new URLSearchParams({ ...o, access_token: acc.token });
+  let r = await fetch(`${GRAPH}/${acc.user_id}/media`, { method: 'POST', body: q({ media_type: 'REELS', upload_type: 'resumable', caption, share_to_feed: 'true' }) });
+  let j = await r.json();
+  if (!j.id || !j.uri) throw new Error('create reel: ' + JSON.stringify(j));
+  const creation = j.id;
+  r = await fetch(j.uri, { method: 'POST', headers: { Authorization: `OAuth ${acc.token}`, offset: '0', file_size: String(size) }, body: fs.readFileSync(file) });
+  const up = await r.text();
+  if (!r.ok) throw new Error('upload reel: ' + up);
+  for (let i = 0; i < 60; i++) {
+    await sleep(5000);
+    j = await (await fetch(`${GRAPH}/${creation}?fields=status_code,status&access_token=${encodeURIComponent(acc.token)}`)).json();
+    if (j.status_code === 'FINISHED') break;
+    if (j.status_code === 'ERROR') throw new Error('reel processing: ' + JSON.stringify(j));
+  }
+  r = await fetch(`${GRAPH}/${acc.user_id}/media_publish`, { method: 'POST', body: q({ creation_id: creation }) });
+  j = await r.json();
+  if (!j.id) throw new Error('publish reel: ' + JSON.stringify(j));
+  const p = await (await fetch(`${GRAPH}/${j.id}?fields=permalink&access_token=${encodeURIComponent(acc.token)}`)).json();
+  return { id: j.id, permalink: p.permalink };
+}
+
 function git(cmd) { return execSync(cmd, { cwd: ROOT, stdio: 'pipe' }).toString().trim(); }
 
 (async () => {
-  console.log(`📅 ${DATE} (day ${DAY})${DRY ? ' — DRY RUN' : ''}`);
-  // GitHub often starts scheduled runs late, so the workflow starts early and we wait here until 8:00 Kigali.
+  console.log(`📅 ${DATE} (day ${DAY}) — ${SLOT}${DRY ? ' — DRY RUN' : ''}`);
+  // GitHub often starts scheduled runs late, so the workflow starts early and we wait here for the posting time.
   if (!DRY && !arg('--date') && process.env.GITHUB_EVENT_NAME === 'schedule') {
-    const kigaliMin = () => { const d = new Date(Date.now() + 2 * 3600e3); return d.getUTCHours() * 60 + d.getUTCMinutes(); };
-    const wait = 8 * 60 - kigaliMin();
-    if (wait > 0) { console.log(`⏳ waiting ${wait} min until 8:00 AM Kigali`); await sleep(wait * 60e3); }
+    const kigaliMin = () => { const d = kigaliNow(); return d.getUTCHours() * 60 + d.getUTCMinutes(); };
+    const wait = (SLOT === 'evening' ? 17 * 60 : 8 * 60) - kigaliMin();
+    if (wait > 0) { console.log(`⏳ waiting ${wait} min until the ${SLOT} post`); await sleep(wait * 60e3); }
   }
   const state = readJSON('state/state.json', { easybuyHistory: [], log: [] });
-  const done = new Set((state.log || []).filter(l => l.date === DATE && l.ok).map(l => l.app));
+  const done = new Set((state.log || []).filter(l => l.date === DATE && l.ok && (l.slot || 'morning') === SLOT).map(l => l.app));
   const posts = (await buildPosts(state)).filter(p => !done.has(p.app));
-  if (!posts.length) { console.log('Everything for today is already posted.'); return; }
+  if (!posts.length) { console.log(`Everything for this ${SLOT} is already posted.`); return; }
 
   const outDir = path.join(ROOT, 'posts', DATE);
-  for (const p of posts) { try { await renderAll([p], outDir); } catch (e) { console.error(`❌ render ${p.app}:`, e.message); p.renderFailed = true; } }
-  for (const p of posts) if (!p.renderFailed) fs.writeFileSync(path.join(outDir, `${p.app}.txt`), p.fullCaption);
-  console.log(`🎨 rendered ${posts.filter(p => !p.renderFailed).length} images → posts/${DATE}/`);
+  const tracks = fs.readdirSync(path.join(ROOT, 'music')).filter(f => f.endsWith('.m4a')).sort();
+  for (const [i, p] of posts.entries()) {
+    try {
+      if (p.reel) { p.file = await makeReel(p, path.join(outDir, `${p.app}-reel.mp4`), path.join(ROOT, 'music', pick(tracks, DAY + i))); console.log(`🎬 reel ${p.app}`); }
+      else await renderAll([p], outDir);
+    } catch (e) { console.error(`❌ render ${p.app}:`, e.message); p.renderFailed = true; }
+  }
+  for (const p of posts) if (!p.renderFailed) fs.writeFileSync(path.join(outDir, `${p.app}${p.reel ? '-reel' : ''}.txt`), p.fullCaption);
+  console.log(`🎨 rendered ${posts.filter(p => !p.renderFailed).length} ${SLOT} posts → posts/${DATE}/`);
   if (DRY) return;
 
   // images must be online before Instagram can fetch them
-  if (!NO_GIT) {
+  if (!NO_GIT && SLOT === 'morning') {
     git('git config user.name "2050 Connect autopost" && git config user.email "rw2050connect@gmail.com"');
     git(`git add posts/${DATE} && git commit -m "Posts for ${DATE}" || true`);
     git(`git push origin HEAD:${BRANCH}`);
@@ -201,14 +266,15 @@ function git(cmd) { return execSync(cmd, { cwd: ROOT, stdio: 'pipe' }).toString(
     }
     const url = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/posts/${DATE}/${p.app}.jpg`;
     try {
-      const res = await igPublish(acc, url, p.fullCaption);
-      console.log(`✅ ${p.app}: ${res.permalink}`);
-      state.log.push({ date: DATE, app: p.app, ok: true, permalink: res.permalink });
+      const res = p.reel ? await igPublishReel(acc, p.file, p.fullCaption) : await igPublish(acc, url, p.fullCaption);
+      console.log(`✅ ${p.app} (${SLOT}): ${res.permalink}`);
+      state.log.push({ date: DATE, slot: SLOT, app: p.app, ok: true, permalink: res.permalink });
       if (p.productId) state.easybuyHistory = [...(state.easybuyHistory || []), p.productId].slice(-120);
+      if (p.productIds) state.easybuyHistory = [...(state.easybuyHistory || []), ...p.productIds].slice(-120);
     } catch (e) {
       failures++;
       console.error(`❌ ${p.app}: ${e.message}`);
-      state.log.push({ date: DATE, app: p.app, ok: false, error: e.message.slice(0, 300) });
+      state.log.push({ date: DATE, slot: SLOT, app: p.app, ok: false, error: e.message.slice(0, 300) });
     }
   }
   state.log = state.log.slice(-400);
