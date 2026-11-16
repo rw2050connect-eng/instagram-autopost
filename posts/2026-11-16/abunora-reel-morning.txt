@@ -1,0 +1,5 @@
+♿ Accessibility helps every user, not just some. Alt text, strong contrast, labelled inputs and full keyboard support are simple to add from the start.
+
+Follow @_abu_nora_ for daily web & mobile dev tips.
+
+#Accessibility #A11y #WebDevelopment #MobileDevelopment #Programming
