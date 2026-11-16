@@ -218,6 +218,32 @@ async function igPublishReel(acc, file, caption, type = 'REELS') {
 
 function git(cmd) { return execSync(cmd, { cwd: ROOT, stdio: 'pipe' }).toString().trim(); }
 
+// Latest post log on GitHub (another run may have posted meanwhile)
+function remoteState() {
+  if (NO_GIT) return readJSON('state/state.json', { easybuyHistory: [], log: [] });
+  git(`git fetch -q origin ${BRANCH}`);
+  try { return JSON.parse(git(`git show origin/${BRANCH}:state/state.json`)); } catch { return { easybuyHistory: [], log: [] }; }
+}
+const alreadyPosted = (st, app) => (st.log || []).some(l => l.date === DATE && l.ok && (l.slot || 'morning') === SLOT && l.app === app);
+
+// Save one log entry to GitHub right away, so no other run can post the same thing again
+async function record(entry, accounts, history = []) {
+  for (let k = 1; ; k++) {
+    try {
+      if (!NO_GIT) { git(`git fetch -q origin ${BRANCH}`); git(`git reset -q --hard origin/${BRANCH}`); }
+      const st = readJSON('state/state.json', { easybuyHistory: [], log: [] });
+      st.log = [...(st.log || []), entry].slice(-400);
+      if (history.length) st.easybuyHistory = [...(st.easybuyHistory || []), ...history].slice(-120);
+      writeJSON('state/state.json', st);
+      saveAccounts(accounts);
+      if (NO_GIT) return;
+      git(`git add state && git commit -q -m "Log ${entry.app} ${DATE} ${SLOT}" || true`);
+      git(`git push -q origin HEAD:${BRANCH}`);
+      return;
+    } catch (e) { if (k >= 5) { console.error('could not save the log:', e.message); return; } await sleep(4000 * k); }
+  }
+}
+
 (async () => {
   console.log(`📅 ${DATE} (day ${DAY}) — ${SLOT}${DRY ? ' — DRY RUN' : ''}`);
   // GitHub often starts scheduled runs late, so the workflow starts early and we wait here for the posting time.
@@ -226,7 +252,7 @@ function git(cmd) { return execSync(cmd, { cwd: ROOT, stdio: 'pipe' }).toString(
     const wait = (SLOT === 'evening' ? 17 * 60 : 8 * 60) - kigaliMin();
     if (wait > 0) { console.log(`⏳ waiting ${wait} min until the ${SLOT} post`); await sleep(wait * 60e3); }
   }
-  const state = readJSON('state/state.json', { easybuyHistory: [], log: [] });
+  const state = DRY ? readJSON('state/state.json', { easybuyHistory: [], log: [] }) : remoteState(); // fresh from GitHub
   const done = new Set((state.log || []).filter(l => l.date === DATE && l.ok && (l.slot || 'morning') === SLOT).map(l => l.app));
   const posts = (await buildPosts(state)).filter(p => !done.has(p.app));
   if (!posts.length) { console.log(`Everything for this ${SLOT} is already posted.`); return; }
@@ -260,33 +286,23 @@ function git(cmd) { return execSync(cmd, { cwd: ROOT, stdio: 'pipe' }).toString(
       console.log(`⏭️  ${p.app}: @${IG_USERNAMES[p.app] || '?'} is not linked to a Facebook Page yet — skipped`);
       continue;
     }
+    if (alreadyPosted(remoteState(), p.app)) { console.log(`⏭️  ${p.app}: already posted this ${SLOT} — skipped`); continue; }
     const url = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/posts/${DATE}/${p.app}.jpg`;
+    let entry;
     try {
       const res = p.reel ? await igPublishReel(acc, p.file, p.fullCaption) : await igPublish(acc, url, p.fullCaption);
       console.log(`✅ ${p.app} (${SLOT}): ${res.permalink}`);
-      const entry = { date: DATE, slot: SLOT, app: p.app, ok: true, permalink: res.permalink };
+      entry = { date: DATE, slot: SLOT, app: p.app, ok: true, permalink: res.permalink };
       if (p.reel) { // the same video also goes to the account's Story
         try { await igPublishReel(acc, p.file, '', 'STORIES'); entry.story = true; console.log(`📲 ${p.app}: also posted to Story`); }
         catch (e) { entry.story = false; entry.storyError = e.message.slice(0, 200); console.warn(`⚠️ ${p.app}: Story not posted — ${e.message.slice(0, 200)}`); }
       }
-      state.log.push(entry);
-      if (p.productId) state.easybuyHistory = [...(state.easybuyHistory || []), p.productId].slice(-120);
-      if (p.productIds) state.easybuyHistory = [...(state.easybuyHistory || []), ...p.productIds].slice(-120);
     } catch (e) {
       failures++;
       console.error(`❌ ${p.app}: ${e.message}`);
-      state.log.push({ date: DATE, slot: SLOT, app: p.app, ok: false, error: e.message.slice(0, 300) });
+      entry = { date: DATE, slot: SLOT, app: p.app, ok: false, error: e.message.slice(0, 300) };
     }
-  }
-  state.log = state.log.slice(-400);
-  writeJSON('state/state.json', state);
-  saveAccounts(accounts);
-  if (!NO_GIT) {
-    git(`git add state && git commit -m "Update post log (${DATE} ${SLOT})" || true`);
-    for (let k = 1; ; k++) { // someone else may have changed the repo meanwhile: pull and retry
-      try { git(`git pull --rebase --autostash origin ${BRANCH}`); git(`git push origin HEAD:${BRANCH}`); break; }
-      catch (e) { if (k >= 4) throw e; console.log(`retrying save (${k})`); await sleep(5000 * k); }
-    }
+    await record(entry, accounts, entry.ok ? [p.productId, ...(p.productIds || [])].filter(Boolean) : []);
   }
   if (failures) { console.error(`${failures} post(s) failed`); process.exit(1); }
 })().catch(e => { console.error(e); process.exit(1); });
