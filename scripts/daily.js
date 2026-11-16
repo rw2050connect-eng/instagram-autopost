@@ -42,7 +42,7 @@ const IG_USERNAMES = {
   findme: 'find_me_nearby',
   findit: 'find250_',
   connect: '2050connect',
-  abunora: '', // _abu_nora_ — set once it is linked to a Facebook Page
+  abunora: '_abu_nora_', // linked to the Abu Nora Page on 16 Nov 2026
 };
 // The GitHub secret IG_ACCOUNTS holds a long-lived Facebook user token (from Graph API Explorer).
 // From it we get each Page's token (Page tokens made from a long-lived user token never expire)
@@ -191,10 +191,12 @@ async function igPublish(acc, imageUrl, caption) {
   return { id: j.id, permalink: p.permalink };
 }
 
-async function igPublishReel(acc, file, caption) {
+// type REELS (feed + Reels tab) or STORIES (24-hour Story; no caption)
+async function igPublishReel(acc, file, caption, type = 'REELS') {
   const size = fs.statSync(file).size;
   const q = (o) => new URLSearchParams({ ...o, access_token: acc.token });
-  let r = await fetch(`${GRAPH}/${acc.user_id}/media`, { method: 'POST', body: q({ media_type: 'REELS', upload_type: 'resumable', caption, share_to_feed: 'true' }) });
+  const params = type === 'STORIES' ? { media_type: 'STORIES', upload_type: 'resumable' } : { media_type: 'REELS', upload_type: 'resumable', caption, share_to_feed: 'true' };
+  let r = await fetch(`${GRAPH}/${acc.user_id}/media`, { method: 'POST', body: q(params) });
   let j = await r.json();
   if (!j.id || !j.uri) throw new Error('create reel: ' + JSON.stringify(j));
   const creation = j.id;
@@ -262,7 +264,12 @@ function git(cmd) { return execSync(cmd, { cwd: ROOT, stdio: 'pipe' }).toString(
     try {
       const res = p.reel ? await igPublishReel(acc, p.file, p.fullCaption) : await igPublish(acc, url, p.fullCaption);
       console.log(`✅ ${p.app} (${SLOT}): ${res.permalink}`);
-      state.log.push({ date: DATE, slot: SLOT, app: p.app, ok: true, permalink: res.permalink });
+      const entry = { date: DATE, slot: SLOT, app: p.app, ok: true, permalink: res.permalink };
+      if (p.reel) { // the same video also goes to the account's Story
+        try { await igPublishReel(acc, p.file, '', 'STORIES'); entry.story = true; console.log(`📲 ${p.app}: also posted to Story`); }
+        catch (e) { entry.story = false; entry.storyError = e.message.slice(0, 200); console.warn(`⚠️ ${p.app}: Story not posted — ${e.message.slice(0, 200)}`); }
+      }
+      state.log.push(entry);
       if (p.productId) state.easybuyHistory = [...(state.easybuyHistory || []), p.productId].slice(-120);
       if (p.productIds) state.easybuyHistory = [...(state.easybuyHistory || []), ...p.productIds].slice(-120);
     } catch (e) {
