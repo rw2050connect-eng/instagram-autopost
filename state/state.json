@@ -781,6 +781,14 @@
       "app": "findit",
       "ok": true,
       "permalink": "https://www.instagram.com/p/DfyqmpkGgKj/"
+    },
+    {
+      "date": "2026-11-16",
+      "slot": "morning",
+      "app": "abunora",
+      "ok": true,
+      "permalink": "https://www.instagram.com/reel/Dfy-L7sE63D/",
+      "story": true
     }
   ]
 }
