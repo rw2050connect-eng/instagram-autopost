@@ -77,9 +77,15 @@ const OUTRO_JS = (start) => `
 function ideaReel(b, p, photo) {
   let pts = (p.points && p.points.length ? p.points : []).slice(0, 4);
   if (pts.length < 2) { // use the key sentences of the caption
-    const body = String(p.caption || '').split('\n\n')[0].replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}\u{200D}]/gu, '').trim();
+    const body = String(p.caption || '').split('\n\n')[0].replace(/[\u{1F300}-\u{1FAFF}\u{2300}-\u{23FF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{FE0F}\u{200D}]/gu, '').trim();
     const sents = body.split(/(?<=[.!?])\s+/).map(x => x.trim()).filter(x => x.length > 12 && x.length < 110);
-    pts = [p.sub, ...sents].filter(Boolean).filter((x, i, a) => a.indexOf(x) === i).slice(0, 3);
+    const words = (x) => new Set(x.toLowerCase().match(/[a-z0-9]+/g) || []);
+    pts = [];
+    for (const x of [p.sub, ...sents].filter(Boolean)) { // skip sentences that repeat an earlier point
+      const w = words(x); const same = pts.some(y => { const v = words(y); let n = 0; w.forEach(t => v.has(t) && n++); return n / Math.min(w.size, v.size) > 0.5; });
+      if (!same) pts.push(x);
+      if (pts.length === 3) break;
+    }
   }
   const hlen = plain(p.headline).length;
   const hsize = hlen > 44 ? 92 : hlen > 30 ? 104 : 116;

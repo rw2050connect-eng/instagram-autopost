@@ -155,20 +155,14 @@ async function buildPosts(state) {
       }
       post.reel = true;
     } else if (isEB) {
+      // 8 AM Reel for EasyBuy: a service idea (the 5 PM Reel shows live products)
       const alt = app === 'easybuy2';
       const cfg = readJSON('content/easybuy.json');
-      let live = null;
-      if (DAY % 2 === 0) live = await easybuyProduct(cfg, [...(state.easybuyHistory || []), ...(alt && mainProductId ? [mainProductId] : [])], alt ? 'alt' : '');
-      if (live) {
-        const k = Math.floor(DAY / 2) + (alt ? 1 : 0);
-        const cap = pick(cfg.productCaptions, k).replace('{title}', live.title).replace('{price}', Number(live.product.price_rwf).toLocaleString('en-US')).replace('{delivery}', live.delivery);
-        post = { app, layout: 'product', image: live.img, kicker: pick(cfg.productKickers, k), headline: live.title, price: live.product.price_rwf, chips: live.chips, cta: 'Order on EasyBuy', caption: cap, tags: ['#DealOfTheDay'], productId: live.product.id };
-        if (!alt) mainProductId = live.product.id;
-      } else {
-        post = { app, ...pick(alt && cfg.postsAlt ? cfg.postsAlt : cfg.posts, Math.floor(DAY / 2)) };
-      }
+      post = { app, ...pick(alt && cfg.postsAlt ? cfg.postsAlt : cfg.posts, DAY) };
+      post.reel = true;
     } else {
       post = { app, ...pick(readJSON(`content/${app}.json`), DAY) };
+      post.reel = true; // 8 AM is a Reel too (user's choice, 16 Nov 2026)
     }
     // Instagram allows at most 5 hashtags
     const tags = [...new Set([...(post.tags || []), ...b.baseTags])].slice(0, 5).join(' ');
@@ -239,11 +233,11 @@ function git(cmd) { return execSync(cmd, { cwd: ROOT, stdio: 'pipe' }).toString(
   const tracks = fs.readdirSync(path.join(ROOT, 'music')).filter(f => f.endsWith('.m4a')).sort();
   for (const [i, p] of posts.entries()) {
     try {
-      if (p.reel) { p.file = await makeReel(p, path.join(outDir, `${p.app}-reel.mp4`), path.join(ROOT, 'music', pick(tracks, DAY + i))); console.log(`🎬 reel ${p.app}`); }
+      if (p.reel) { p.file = await makeReel(p, path.join(outDir, `${p.app}-reel-${SLOT}.mp4`), path.join(ROOT, 'music', pick(tracks, DAY + i))); console.log(`🎬 reel ${p.app}`); }
       else await renderAll([p], outDir);
     } catch (e) { console.error(`❌ render ${p.app}:`, e.message); p.renderFailed = true; }
   }
-  for (const p of posts) if (!p.renderFailed) fs.writeFileSync(path.join(outDir, `${p.app}${p.reel ? '-reel' : ''}.txt`), p.fullCaption);
+  for (const p of posts) if (!p.renderFailed) fs.writeFileSync(path.join(outDir, `${p.app}${p.reel ? `-reel-${SLOT}` : ''}.txt`), p.fullCaption);
   console.log(`🎨 rendered ${posts.filter(p => !p.renderFailed).length} ${SLOT} posts → posts/${DATE}/`);
   if (DRY) return;
 
