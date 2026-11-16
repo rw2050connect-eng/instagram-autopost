@@ -165,13 +165,30 @@ function productReel(b, products, alt) {
   return shell(b, inner, script);
 }
 
+// Grid cover for product Reels: all products with prices on one picture
+function productCover(b, products, alt) {
+  const rows = products.map(p => `<div class="row"><div class="ph"><img src="${p.img}"></div>
+      <div class="info"><div class="nm">${esc(p.name)}</div><div class="pr">${Number(p.price).toLocaleString('en-US')} <small>RWF</small></div></div></div>`).join('');
+  const inner = `<style>.row{display:flex;gap:40px;align-items:center;background:#fff;border-radius:48px;padding:28px;margin-bottom:34px;box-shadow:0 20px 50px rgba(0,0,0,.3)}
+    .ph{flex:none;width:300px;height:300px;border-radius:32px;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .ph img{max-width:100%;max-height:100%;object-fit:contain}
+    .info{flex:1;min-width:0}.nm{color:#111;font-weight:700;font-size:46px;line-height:1.15;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+    .pr{display:inline-block;margin-top:22px;background:${b.accent};color:${b.dark};font-weight:800;font-size:56px;padding:12px 30px;border-radius:26px}.pr small{font-size:32px}</style>
+    <div class="abs" style="left:90px;right:90px;top:290px"><span class="pill">${alt ? 'Hot right now' : "Today's picks"}</span>
+      <div style="color:#fff;font-weight:800;font-size:92px;line-height:1.02;letter-spacing:-3px;margin-top:26px">${products.length} deals <span style="color:${b.accent}">today</span></div></div>
+    <div class="abs" style="left:70px;right:70px;top:600px">${rows}</div>
+    <div class="abs" style="left:0;right:0;top:1760px;text-align:center;color:#fff;opacity:.85;font-size:40px;font-weight:600">Delivered in Kigali · easybuyrw.com</div>`;
+  return shell(b, inner, 'window.render=function(t){drift(0)}');
+}
+
 async function makeReel(post, outFile, musicFile) {
   const b = BRANDS[post.app];
-  let html;
+  let html, coverHtml = null;
   if (post.reelProducts) {
     const prods = [];
     for (const p of post.reelProducts) prods.push({ ...p, img: await remote(p.image) });
     html = productReel(b, prods, post.app === 'easybuy2');
+    coverHtml = productCover(b, prods, post.app === 'easybuy2');
   } else {
     let photo = null;
     if (post.photo) {
@@ -187,9 +204,20 @@ async function makeReel(post, outFile, musicFile) {
   await page.goto('file://' + path.join(tmp, 'reel.html'));
   await page.evaluate(() => document.fonts.ready);
   await page.waitForTimeout(300);
+  const cover = outFile.replace(/\.mp4$/, '-cover.jpg');
+  const coverFrame = Math.round(10.5 * FPS); // idea Reels: headline + all points are on screen here
   for (let i = 0; i < DUR * FPS; i++) {
     await page.evaluate(t => window.render(t), i / FPS);
     await page.screenshot({ path: path.join(tmp, `f${String(i).padStart(4, '0')}.jpg`), type: 'jpeg', quality: 88 });
+    if (!coverHtml && i === coverFrame) { fs.mkdirSync(path.dirname(cover), { recursive: true }); fs.copyFileSync(path.join(tmp, `f${String(i).padStart(4, '0')}.jpg`), cover); }
+  }
+  if (coverHtml) {
+    fs.writeFileSync(path.join(tmp, 'cover.html'), coverHtml);
+    await page.goto('file://' + path.join(tmp, 'cover.html'));
+    await page.evaluate(() => document.fonts.ready);
+    await page.waitForTimeout(300);
+    fs.mkdirSync(path.dirname(cover), { recursive: true });
+    await page.screenshot({ path: cover, type: 'jpeg', quality: 85 });
   }
   await browser.close();
   fs.mkdirSync(path.dirname(outFile), { recursive: true });
@@ -197,7 +225,7 @@ async function makeReel(post, outFile, musicFile) {
     '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '23', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '128k', '-ar', '44100',
     '-shortest', '-movflags', '+faststart', outFile]);
   fs.rmSync(tmp, { recursive: true, force: true });
-  return outFile;
+  return { file: outFile, cover };
 }
 
 module.exports = { makeReel };

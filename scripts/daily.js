@@ -192,10 +192,11 @@ async function igPublish(acc, imageUrl, caption) {
 }
 
 // type REELS (feed + Reels tab) or STORIES (24-hour Story; no caption)
-async function igPublishReel(acc, file, caption, type = 'REELS') {
+async function igPublishReel(acc, file, caption, type = 'REELS', coverUrl = null) {
   const size = fs.statSync(file).size;
   const q = (o) => new URLSearchParams({ ...o, access_token: acc.token });
   const params = type === 'STORIES' ? { media_type: 'STORIES', upload_type: 'resumable' } : { media_type: 'REELS', upload_type: 'resumable', caption, share_to_feed: 'true' };
+  if (coverUrl && type === 'REELS') params.cover_url = coverUrl; // grid preview picture
   let r = await fetch(`${GRAPH}/${acc.user_id}/media`, { method: 'POST', body: q(params) });
   let j = await r.json();
   if (!j.id || !j.uri) throw new Error('create reel: ' + JSON.stringify(j));
@@ -261,7 +262,7 @@ async function record(entry, accounts, history = []) {
   const tracks = fs.readdirSync(path.join(ROOT, 'music')).filter(f => f.endsWith('.m4a')).sort();
   for (const [i, p] of posts.entries()) {
     try {
-      if (p.reel) { p.file = await makeReel(p, path.join(outDir, `${p.app}-reel-${SLOT}.mp4`), path.join(ROOT, 'music', pick(tracks, DAY + i))); console.log(`🎬 reel ${p.app}`); }
+      if (p.reel) { const r = await makeReel(p, path.join(outDir, `${p.app}-reel-${SLOT}.mp4`), path.join(ROOT, 'music', pick(tracks, DAY + i))); p.file = r.file; p.cover = r.cover; console.log(`🎬 reel ${p.app}`); }
       else await renderAll([p], outDir);
     } catch (e) { console.error(`❌ render ${p.app}:`, e.message); p.renderFailed = true; }
   }
@@ -277,6 +278,27 @@ async function record(entry, accounts, history = []) {
     await sleep(8000);
   }
 
+  // Reel covers (grid preview pictures) go on a separate 'covers' branch that is replaced every run
+  const withCover = posts.filter(p => p.cover && fs.existsSync(p.cover));
+  if (!NO_GIT && withCover.length) {
+    try {
+      const idx = path.join(require('os').tmpdir(), `covers-index-${process.pid}`);
+      const env = { ...process.env, GIT_INDEX_FILE: idx };
+      const run = (c) => execSync(c, { cwd: ROOT, env, stdio: 'pipe' }).toString().trim();
+      for (const p of withCover) {
+        const name = `${DATE}/${p.app}-${SLOT}.jpg`;
+        const sha = run(`git hash-object -w "${p.cover}"`);
+        run(`git update-index --add --cacheinfo 100644,${sha},${name}`);
+        p.coverUrl = `https://raw.githubusercontent.com/${REPO}/covers/${name}`;
+      }
+      const commit = run(`git commit-tree ${run('git write-tree')} -m "Reel covers ${DATE} ${SLOT}"`);
+      run(`git push -q -f origin ${commit}:refs/heads/covers`);
+      fs.rmSync(idx, { force: true });
+      console.log(`🖼️  ${withCover.length} Reel covers online`);
+      await sleep(8000);
+    } catch (e) { console.warn('⚠️ covers not uploaded, Reels will use the first frame:', e.message.slice(0, 200)); withCover.forEach(p => delete p.coverUrl); }
+  }
+
   const accounts = await loadAccounts();
   let failures = 0;
   for (const p of posts) {
@@ -290,7 +312,7 @@ async function record(entry, accounts, history = []) {
     const url = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/posts/${DATE}/${p.app}.jpg`;
     let entry;
     try {
-      const res = p.reel ? await igPublishReel(acc, p.file, p.fullCaption) : await igPublish(acc, url, p.fullCaption);
+      const res = p.reel ? await igPublishReel(acc, p.file, p.fullCaption, 'REELS', p.coverUrl) : await igPublish(acc, url, p.fullCaption);
       console.log(`✅ ${p.app} (${SLOT}): ${res.permalink}`);
       entry = { date: DATE, slot: SLOT, app: p.app, ok: true, permalink: res.permalink };
       if (p.reel) { // the same video also goes to the account's Story
