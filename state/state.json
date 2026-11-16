@@ -15,7 +15,13 @@
     "475b9a16-5d90-4630-b6bd-e438a78cc2a1",
     "ac3c7cec-cafe-4f6d-b326-7df44079ae78",
     "e6c5282b-779c-41f5-9ad7-53b197cf635b",
-    "6ab672a0-59ef-4022-9bc6-7ff5b8e31041"
+    "6ab672a0-59ef-4022-9bc6-7ff5b8e31041",
+    "aacb0cea-db8a-44d9-924f-87bb0994261b",
+    "92b4a6cd-63ec-4fa2-bcc1-104207d89ed1",
+    "53d55f94-eb70-4ebc-83e0-80cb53ce7b98",
+    "6e5fe898-0ba7-45fb-9f1d-c9f21929c97f",
+    "b2c614dc-261a-4bc2-804f-a59e28fcabcf",
+    "0905ccab-4249-4646-8987-0810f45bda25"
   ],
   "log": [
     {
@@ -788,6 +794,70 @@
       "app": "abunora",
       "ok": true,
       "permalink": "https://www.instagram.com/reel/Dfy-L7sE63D/",
+      "story": true
+    },
+    {
+      "date": "2026-11-16",
+      "slot": "evening",
+      "app": "connect",
+      "ok": true,
+      "permalink": "https://www.instagram.com/reel/DfzpaypCaHZ/",
+      "story": true
+    },
+    {
+      "date": "2026-11-16",
+      "slot": "evening",
+      "app": "easybuy",
+      "ok": true,
+      "permalink": "https://www.instagram.com/reel/Dfzpj3sCTyB/",
+      "story": true
+    },
+    {
+      "date": "2026-11-16",
+      "slot": "evening",
+      "app": "easybuy2",
+      "ok": true,
+      "permalink": "https://www.instagram.com/reel/Dfzps1GiXku/",
+      "story": true
+    },
+    {
+      "date": "2026-11-16",
+      "slot": "evening",
+      "app": "vamos",
+      "ok": true,
+      "permalink": "https://www.instagram.com/reel/Dfzp1nkiUZU/",
+      "story": true
+    },
+    {
+      "date": "2026-11-16",
+      "slot": "evening",
+      "app": "worksmart",
+      "ok": true,
+      "permalink": "https://www.instagram.com/reel/Dfzp9viidTo/",
+      "story": true
+    },
+    {
+      "date": "2026-11-16",
+      "slot": "evening",
+      "app": "findme",
+      "ok": true,
+      "permalink": "https://www.instagram.com/reel/DfzqGfeidNj/",
+      "story": true
+    },
+    {
+      "date": "2026-11-16",
+      "slot": "evening",
+      "app": "findit",
+      "ok": true,
+      "permalink": "https://www.instagram.com/reel/DfzqPR6CVGp/",
+      "story": true
+    },
+    {
+      "date": "2026-11-16",
+      "slot": "evening",
+      "app": "abunora",
+      "ok": true,
+      "permalink": "https://www.instagram.com/reel/DfzqYAwiXQl/",
       "story": true
     }
   ]
