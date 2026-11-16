@@ -312,7 +312,15 @@ async function record(entry, accounts, history = []) {
     const url = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/posts/${DATE}/${p.app}.jpg`;
     let entry;
     try {
-      const res = p.reel ? await igPublishReel(acc, p.file, p.fullCaption, 'REELS', p.coverUrl) : await igPublish(acc, url, p.fullCaption);
+      let res;
+      if (p.reel) {
+        try { res = await igPublishReel(acc, p.file, p.fullCaption, 'REELS', p.coverUrl); }
+        catch (e) { // never lose a Reel because of its cover picture
+          if (!p.coverUrl || !/^(create reel|upload reel|reel processing)/.test(e.message)) throw e;
+          console.warn(`⚠️ ${p.app}: cover refused (${e.message.slice(0, 120)}) — posting without it`);
+          res = await igPublishReel(acc, p.file, p.fullCaption, 'REELS');
+        }
+      } else res = await igPublish(acc, url, p.fullCaption);
       console.log(`✅ ${p.app} (${SLOT}): ${res.permalink}`);
       entry = { date: DATE, slot: SLOT, app: p.app, ok: true, permalink: res.permalink };
       if (p.reel) { // the same video also goes to the account's Story
