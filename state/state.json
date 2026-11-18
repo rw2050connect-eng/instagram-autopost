@@ -30,7 +30,10 @@
     "647bf3ba-204e-4cd2-9fc0-ab43fd3dcc74",
     "2e5558da-66f0-4f35-b7ea-adf999792fe5",
     "35b9a5a1-ff1f-4b43-b3fe-53563b797fb2",
-    "7daeaef0-3c43-4536-befa-ac6d67c69781"
+    "7daeaef0-3c43-4536-befa-ac6d67c69781",
+    "223d74ee-e18a-4057-b0a6-dabb8b3310ba",
+    "c7981413-ff53-4a41-8b59-a9031353f298",
+    "ad628347-7212-4b33-9410-6d36094aaa67"
   ],
   "log": [
     {
@@ -1075,6 +1078,14 @@
       "app": "easybuy",
       "ok": true,
       "permalink": "https://www.instagram.com/reel/Df4yT9TiXTu/",
+      "story": true
+    },
+    {
+      "date": "2026-11-18",
+      "slot": "evening",
+      "app": "easybuy2",
+      "ok": true,
+      "permalink": "https://www.instagram.com/reel/Df4ycyOieOc/",
       "story": true
     }
   ]
