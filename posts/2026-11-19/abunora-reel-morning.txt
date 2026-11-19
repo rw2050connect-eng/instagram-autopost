@@ -1,0 +1,5 @@
+🟨 Small modern JavaScript habits make code easier to read: const by default, optional chaining, nullish coalescing and async/await.
+
+Follow @_abu_nora_ for daily web & mobile dev tips.
+
+#JavaScript #WebDev #WebDevelopment #MobileDevelopment #Programming
