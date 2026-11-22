@@ -1,0 +1,5 @@
+⌨️ Multi-cursor, go to file, rename symbol, format document. Learn a few editor shortcuts each week and you'll code noticeably faster.
+
+Follow @_abu_nora_ for daily web & mobile dev tips.
+
+#VSCode #Productivity #WebDevelopment #MobileDevelopment #Programming
