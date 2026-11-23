@@ -1679,6 +1679,15 @@
       "ok": true,
       "permalink": "https://www.instagram.com/reel/DgEsicNE1O7/",
       "story": true
+    },
+    {
+      "date": "2026-11-23",
+      "slot": "morning",
+      "app": "easybuy2",
+      "ok": true,
+      "permalink": "https://www.instagram.com/reel/DgEsqrKDosh/",
+      "story": false,
+      "storyError": "upload reel: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
     }
   ]
 }
