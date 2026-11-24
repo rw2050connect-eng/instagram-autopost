@@ -1,0 +1,5 @@
+⚙️ There's no single best backend. Need to launch fast? Supabase or Firebase. Want full control? Node.js. Want everything built-in? Laravel or Django.
+
+Follow @_abu_nora_ for daily web & mobile dev tips.
+
+#Backend #NodeJS #WebDevelopment #MobileDevelopment #Programming
