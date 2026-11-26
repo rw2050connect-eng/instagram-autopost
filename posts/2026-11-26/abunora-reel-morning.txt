@@ -1,0 +1,5 @@
+📲 A Progressive Web App lets users install your website like an app, with offline support. Manifest, service worker, caching and HTTPS are all you need.
+
+Follow @_abu_nora_ for daily web & mobile dev tips.
+
+#PWA #WebDev #WebDevelopment #MobileDevelopment #Programming
