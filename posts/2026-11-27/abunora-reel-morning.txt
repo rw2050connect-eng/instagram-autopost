@@ -1,0 +1,5 @@
+🧪 Start testing the parts that would hurt most if they broke: payments, auth, core flows. Add a test with every bug fix and run them automatically.
+
+Follow @_abu_nora_ for daily web & mobile dev tips.
+
+#Testing #SoftwareEngineering #WebDevelopment #MobileDevelopment #Programming
